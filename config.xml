@@ -17,6 +17,7 @@
     </author>
 
     <gap:platform name="ios" />
+    <gap:platform name="android" />
 
     <preference name="target-device"              value="handset" />
     <preference name="orientation"                value="portrait" />
