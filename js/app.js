@@ -65,10 +65,10 @@ Lungo.Events.init({
             dataType: 'xml', //'json', 'xml', 'html', or 'text'
             async: false,
             success: function(response) { 
-                alert(response);
+                Lungo.Notification.success("Success","Successful operation", "check", 7);
             },
             error: function(xhr, type) { 
-                alert('Error!')
+                Lungo.Notification.error("Error","Unsuccessful operation", "cancel", 7);
             }
         });
 
