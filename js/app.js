@@ -70,6 +70,7 @@ Lungo.Events.init({
 		
 	},
    
+/*
 	'touch #list-nav': function() {
 		$$('header > h1').html($$(this).attr('data-title'));
 		Lungo.Router.section('secLists');
@@ -79,6 +80,7 @@ Lungo.Events.init({
 		$$('header > h1').html($$(this).attr('data-title'));
 		Lungo.Router.section('secBadges');		
 	},
+*/
 
     'load article#viewLists' : App.showListCount,
 
