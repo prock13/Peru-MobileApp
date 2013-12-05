@@ -8,9 +8,6 @@ function ListsViewModel() {
     
     self.defaultParams = {
 	    country: 'uk',
-	    pretty: 1,
-	    action: 'search_listings',
-	    encoding: 'json',
 	    listing_type: 'buy',
 	
 	    // Used to signify we are using jsonp
