@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="cleartype" content="on">
-  
+
   <!-- iPhone -->
   <link href="images/appicons/appicon.png" sizes="57x57" rel="apple-touch-icon">
   <link href="images/appicons/Default.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
@@ -29,144 +29,230 @@
 </head>
 
 <body class="app">
-	<section id="main" data-transition="slide">
-    	<header data-image="images/logo-peru.png"></header>
-		<article class="scroll">
-		      <div class="artContainer">	        
-		        <div class="block info">
-		          <h2 class="title">Bienvenido a Peru Travel App</h2>
-		          <p>Si tu ya has creado un usuario y contraseña, debes usarlo para loguearte aquí. Si no lo has creado todavía, por favor visita la versión de escritorio de <a href="http://www.peru.travel/">www.peru.travel</a> y crea una.</p>
-		        </div>
-		
-		        <div class="form block">
-		          <fieldset class="radius-top" data-icon="user">
-		            <input type="text" placeholder="Nombre de Usuario" id="login-name" value="">
-		          </fieldset>
-		          <fieldset class="shadow" data-icon="lock">
-		            <input type="password" placeholder="Contraseña" id="login-password" value="">
-		          </fieldset>
-		          <fieldset class="radius-bottom shadow">
-		            <label class="select"> 
-		              <span class="flag"></span>
-		              <select class="flags" id="login-portal">
-		                <option name="" value="">Selecciona el Portal de Registro</option>
-		                <option name="" value="53">International</option>
-		                <option name="es-pe" value="1">Perú</option>
-		                <option name="es-es" value="6">España</option>
-		                <option name="es-lat" value="12">Latinoamérica</option>
-		                <option name="en-us" value="52">United States</option>
-		                <option name="en-ca" value="5">Canada</option>
-		                <option name="en-uk" value="13">United Kingdom</option>
-		              </select>
-		            </label>
-		          </fieldset>
-		          <br />
-		          <label> <a href="">Olvide mi usuario o contraseña</a> </label>
-		          <br />
-		          <button id="btnLogin" class="anchor" data-icon="signin" data-label="Inicio"></button>
-		        </div>
-		      </div>
-		</article>
-	</section>
+  <!--index-->
+  <section id="main" data-transition="slide">
+    <header data-image="images/logo-peru.png"></header>
+    <article class="scroll">
+      <div class="artContainer">
+        
+        <div class="block info">
+          <h2 class="title">Bienvenido a Peru Travel App</h2>
+          <p>Si tu ya has creado un usuario y contraseña, debes usarlo para loguearte aquí. Si no lo has creado todavía, por favor visita la versión de escritorio de <a href="http://www.peru.travel/">www.peru.travel</a> y crea una.</p>
+        </div>
 
-	<section id="home" data-transition="slide">
-		<header data-title="promperu"> 
-		</header>
-		<article id="homeSlider" data-control="carousel">
-		    <div class="artContainer">
-		        <div align="center"> <img src="images/home/slider1.png" /> </div>
-		        <div align="center"> <img src="images/home/slider2.png" /> </div>
-		        <div align="center"> <img src="images/home/slider3.png" /> </div>
-		        <div align="center"> <img src="images/home/slider4.png" /> </div>
-		        <div align="center"> <img src="images/home/slider5.png" /> </div>
-			</div>
-		</article>	  
-		<footer>
-			<nav class="icons">
-				<a id="list-nav" href="#" class="navButton" data-icon="list-ul" data-title="Mis Listas de Viaje">Listas</a>
-				<a id="badge-nav" href="#" class="navButton" data-icon="trophy" data-title="Mis Insignias">Insignias</a>
-				<a id="more-nav" href="#" class="navButton" data-icon="plus" data-view-article="viewMore" data-async="views/more.html" data-title="Más"> Más </a>
-				<a id="logout-nav" href="#" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
-			</nav>
-		</footer>
-	</section>
-	
-	<section id="secLists" data-transition="slide">
-		<header data-title="promperu"> 
-			<nav> <a id="" href="#" data-icon="home" data-view-section="home" class="on-left"></a></nav>
-			<nav> <a id="" href="#" data-icon="share" class="on-right" data-article="viewLists"></a></nav>
-		</header>
-	
-		<article id="viewLists" class="list scroll">	
-			<ul class="artContainer" data-bind='foreach: lists'>
-				<li class="arrow selectable" data-async="views/list_detail.html" data-view-article="listsDetail"> <span data-bind='text: $data'>&nbsp;</span></li>
-			</ul>
-		</article>
-		<footer>
-			<nav class="icons">
-				<a id="list-nav" href="#" class="navButton" data-icon="list-ul" data-title="Mis Listas de Viaje">Listas</a>
-				<a id="badge-nav" href="#" class="navButton" data-icon="trophy" data-title="Mis Insignias">Insignias</a>
-				<a id="more-nav" href="#" class="navButton" data-icon="plus" data-view-article="viewMore" data-async="views/more.html" data-title="Más"> Más </a>
-				<a id="logout-nav" href="#" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
-			</nav>
-		</footer>
-	</section>
+        <div class="form block">
+          <fieldset class="radius-top" data-icon="user">
+            <input type="text" placeholder="Nombre de Usuario" id="login-name" value="">
+          </fieldset>
+          <fieldset class="shadow" data-icon="lock">
+            <input type="password" placeholder="Contraseña" id="login-password" value="">
+          </fieldset>
+          <fieldset class="radius-bottom shadow">
+            <label class="select"> 
+              <span class="flag" id="flagpic"></span>
+              <select onblur="changeflag()"class="flags" id="login-portal">
+                <option class="first" name="" value="">Selecciona el Portal de Registro</option>
+                <option name="en-int" value="53">International</option>
+                <option name="es-pe" value="1">Perú</option>
+                <option name="es-es" value="6">España</option>
+                <option name="es-lat" value="12">Latinoamérica</option>
+                <option name="en-us" value="52">United States</option>
+                <option name="en-ca" value="5">Canada</option>
+                <option name="en-uk" value="13">United Kingdom</option>
+              </select>	
+            </label>
+          </fieldset>
+          <br />
+          <label> <a href="">Olvide mi usuario o contraseña</a> </label>
+          <br />
+          <button id="btnLogin" class="anchor" data-icon="signin" data-label="Inicio" data-view-section="home"></button>
+        </div>
+      </div>
+    </article>
+  </section>
+  
+  <!--home-->
+  <section id="home" data-transition="">
+    <header data-title="Promperu">  </header>
 
-	<section id="secBadges" data-transition="slide">
-		<header data-title="promperu"> 
-			<nav> <a id="" href="#" data-icon="home" data-view-section="home" class="on-left"></a></nav>
-			<nav> <a id="" href="#" data-icon="share" class="on-right" data-article="viewLists"></a></nav>
-		</header>
-		<article id="viewBadges" class="list">
-		  <ul class="artContainer">
-		    <li class="anchor contrast"><span data-bind="text: userBadgesTitle"></li>
-		    <li> 
-		      <div class="listGrid" data-bind='foreach: userBadgesLists'>
-				  <img data-bind="attr: { src: badgesURL, alt: badgesID }" width="80" height="80">
-		      </div>
-		    </li>
-		  </ul>
-		  
-		  <ul class="artContainer" >		
-		    <li class="anchor contrast">Todos los Sellos</li>
-		    <li> 
-		      <div class="listGrid">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		        <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-		      </div>
-		    </li>
-		  </ul> 
-		</article>
-		<footer>
-			<nav class="icons">
-				<a id="list-nav" href="#" class="navButton" data-icon="list-ul" data-title="Mis Listas de Viaje">Listas</a>
-				<a id="badge-nav" href="#" class="navButton" data-icon="trophy" data-title="Mis Insignias">Insignias</a>
-				<a id="more-nav" href="#" class="navButton" data-icon="plus" data-view-article="viewMore" data-async="views/more.html" data-title="Más"> Más </a>
-				<a id="logout-nav" href="#" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
-			</nav>
-		</footer>
-	</section>
+    <article id="homeSlider" data-control="carousel">
+      <div class="artContainer">
+          <div align="center"> <img src="images/home/slider1.png" /> </div>
+          <div align="center"> <img src="images/home/slider2.png" /> </div>
+          <div align="center"> <img src="images/home/slider3.png" /> </div>
+          <div align="center"> <img src="images/home/slider4.png" /> </div>
+          <div align="center"> <img src="images/home/slider5.png" /> </div>
+        </div>
+    </article>
 
+    <footer>
+      <nav class="icons">                                                
+        <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secViewLists">Listas</a>
+        <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secViewBadges">Insignias</a>
+        <a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+        <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
+      </nav>
+    </footer>
+  </section>
+  
+  
+  <!--viewlists-->
+  <section id="secViewLists" data-transition="">
+    <header data-title="Mis Listas de Viaje"> 
+      <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+    </header>
+
+    <article id="viewLists" class="list scroll">
+      <ul class="artContainer">
+        <li class="arrow selectable" data-async="views/list_detail.html" data-view-article="listsDetail"> Mi Lista 1 </li>
+        <li class="arrow selectable"> Mi Lista 2 </li>
+        <li class="arrow selectable"> Mi Lista 3 </li>
+        <li class="arrow selectable"> Mi Lista 4 </li>
+        <li class="arrow selectable"> Mi Lista 5 </li>
+      </ul>
+    </article>
+    
+  </section>
+  
+  
+  <!--listsDetail-->
+  <section id="secListDetail" data-transition="">
+    <header data-title="Mi Lista 1"> 
+       <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+      <nav class="on-right"> <a id="" data-icon="share" data-view-menu="socials"></a></nav>
+    </header>
+
+    <nav id="socials" data-control="menu">
+      <a id="shareFB" data-icon="facebook" target="_blank">Facebook</a>
+      <a id="shareTW" data-icon="twitter">Twitter</a>
+    </nav>
+    <article id="listsDetail" class="list scroll">
+
+      <ul class="artContainer">
+       <li class="anchor contrast">Atractivos</li>
+       <li class="arrow selectable" data-async="views/list_detail_item.html" data-view-article="listsDetailItem"> Mi Atractivo 1 </li>
+       <li class="arrow selectable"> Mi Atractivo 2 </li>
+       <li class="arrow selectable"> Mi Atractivo 3 </li>
+
+       <li class="anchor contrast">Servicios Turísticos</li>
+       <li class="arrow selectable"> Mi Servicio 1 </li>
+       <li class="arrow selectable"> Mi Servicio 2 </li>
+
+       <li class="anchor contrast">Eventos</li>
+       <li class="arrow selectable"> Mi Evento 1 </li>
+       <li class="arrow selectable"> Mi Evento 2 </li>
+      </ul>
+
+     </article>
+  </section>
+  
+  
+  <!--listDetailItem-->
+  <section id="secListDetailItem" data-transition="">
+    <header data-title="Mi Atractivo 1"> 
+      <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+    </header>
+      
+    <article id="listsDetailItem">
+
+      <div class="artContainer">
+        <h2>Event 1</h2>
+
+        <img src="http://lorempixel.com/300/200/animals/" width="300" height="200" alt="">
+
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      </div>  
+
+    </article>
+  </section>
+  
+  
+  <!--viewBadges-->
+  <section id="secViewBadges" data-transition="">
+    <header data-title="Mis Insignias"> 
+      <nav> <a id="" href="#" data-view-section="back" data-icon="home" class="on-left"></a></nav>
+    </header>
+
+    <article id="viewBadges" class="list">
+
+      <ul class="artContainer">
+        <li class="anchor contrast">Mis Insignias</li>
+        <li> 
+          <div class="listGrid">
+            <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
+            <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
+            <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
+          </div>
+        </li>
+      </ul>
+        
+      <ul class="artContainer">
+        <li class="anchor contrast">Todas las Insignias</li>
+        <li> 
+          <div class="listGrid">
+            <img src="images/badges/locked/01_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/02_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/03_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/04_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/05_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/06_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/07_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/08_locked.png" width="80" height="80" alt="">
+            <img src="images/badges/locked/09_locked.png" width="80" height="80" alt="">
+          </div>
+        </li>
+      </ul>
+
+    </article>
+  </section>
+  
+  
+  
+  
 
   <!-- Lungo dependencies -->
   <script src="components/quojs/quo.js"></script>
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
-  <script src="viewModels/listsViewModel.js"></script>
-  <script src="viewModels/badgesViewModel.js"></script>
+
   <script type="text/javascript" charset="utf-8">
     Lungo.init({
       name: 'Peru Travel App',
       history: false
-    });    
+    });
+    
+    //change select flag
+    function changeflag() {
+      var sel = document.getElementById('login-portal');
+      var option = sel.options[sel.selectedIndex];
+      var txtPortalLang = option.getAttribute('name');
+
+      //var $flag= $$(this).children(':selected').data('name');
+      var path="url('../template/images/flags/"+txtPortalLang+".gif')";
+       document.getElementById('flagpic').style.backgroundImage = path;
+     }
   </script>
   <script src="js/app.js"></script>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      // init the FB JS SDK
+      FB.init({
+        appId      : '627567960617743',   // App ID from the app dashboard
+        status     : true,                // Check Facebook Login status
+        xfbml      : true                 // Look for social plugins on the page
+      });
+    };
+
+    // Load the SDK asynchronously
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
 </html>
