@@ -1,36 +1,98 @@
-.console {
-    background: #292f34;
-    color: white;
-    font-size: 1.0em;
-    text-align: center;
+pho/*--resets--*/
+body { font: 15px/1.25 "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+body > section > header { background:#d52b1e; -webkit-box-shadow:inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1);background: #d25349; /* Old browsers */background: -moz-linear-gradient(top, #d25349 0%, #cf2417 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d25349), color-stop(100%,#cf2417)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #d25349 0%,#cf2417 100%); /* Chrome10+,Safari5.1+ */
+background: linear-gradient(to bottom, #d25349 0%,#cf2417 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d25349', endColorstr='#cf2417',GradientType=0 ); /* IE6-9 */ }
+/*------------FOOTER--------*/
+body > section > footer{background: #e8e8e8; /* Old browsers */
+background: -moz-linear-gradient(top, #e8e8e8 0%, #cfcece 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e8e8e8), color-stop(100%,#cfcece)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* Chrome10+,Safari5.1+ *background: -o-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* Opera 11.10+ */background: -ms-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* IE10+ */background: linear-gradient(to bottom, #e8e8e8 0%,#cfcece 100%); /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#cfcece',GradientType=0 ); /* IE6-9 */color:#777; height:70px;}
+section > footer > nav > a.active,section > footer > nav > a:active{color:black;box-shadow:none;}
+section > footer > nav > a.active .icon {color:#d52b1e;}
+section > footer > nav > a{color:#777;width:25%;}
+section > footer > nav{text-align:center;}
+footer nav .icon{display:block;line-height: 10px;margin:0px auto;padding-top:20px}
+.tag:not(.icon).count{background-color: #d52b1e;float: right;margin-right: -9px;margin-top: -10px;}
+/*-----------------------------------*/
+
+  body > section > header .title { -moz-text-shadow: 0 0.1em #C1170A; -ms-text-shadow: 0 0.1em #C1170A; -o-text-shadow: 0 0.1em #C1170A; text-shadow: 0 0.1em #C1170A; 	font-family:'BreePeruWeb'; text-transform: capitalize; }
+  header .icon { color:#fff; }
+  header nav .icon { -moz-text-shadow: 0 0.1em #C1170A; -ms-text-shadow: 0 0.1em #C1170A; -o-text-shadow: 0 0.1em #C1170A; text-shadow: 0 0.1em #C1170A;  }
+body > section > header { }
+article button { background-color: #d52b1e; }
+  article .button.anchor:not(.icon) .icon, article button.anchor:not(.icon) .icon { right:1em; left:auto; }
+body > section > article p a { color:#666; font-weight: bold; text-decoration: underline; }
+
+/*---containers---*/
+.artContainer{width: 96%; margin:2% auto;}
+.artContainer  p{ text-align:justify; }
+  .artContainer .block { margin:1% auto; }
+  .artContainer h2.title { font-family:'BreePeruWeb-Light'; }
+  .artContainer h2 { padding:10px 0px;color:#C1170A; }
+  .artContainer h4 { padding:5px 0px;}
+  
+/*-------badges-------*/
+.listGrid img{margin:5px;width:29%;height:auto;}
+.list .artContainer{width:100%;}
+.artContainer .anchor.contrast {padding-top:8px!important;height:35px;background: #e8e8e8; /* Old browsers */
+background: -moz-linear-gradient(top, #e8e8e8 0%, #cfcece 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e8e8e8), color-stop(100%,#cfcece)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* Chrome10+,Safari5.1+ *background: -o-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* Opera 11.10+ */background: -ms-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* IE10+ */background: linear-gradient(to bottom, #e8e8e8 0%,#cfcece 100%); /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#cfcece',GradientType=0 ); /* IE6-9 */color:#777;}
+
+/*---index---*/
+#main { background: url('../images/home/slider1.png') repeat-x top center; }
+  #main > article { background:none; }
+  #main .info { background-color: #fff; padding:1em 0.7em; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:5%; margin-bottom:2.5%; text-align: center; }
+    #main .info p { font-size:90%; }
+  header .icon { margin-left: 2%; }
+  .select .flag { display:inline-block; width: 27px; height:18px; vertical-align:text-bottom; background-image:url('../images/flags/en-int.gif'); background-repeat: repeat-y; background-position: left center; }
+    .select .flags { width:85%; }
+    .form label.select, .select select option:first-child { color:#f4f4f4; }
+  .form.block > label { display: block; text-align: center; }
+    .block > label a { color:#fff; text-decoration: underline; }
+    
+
+/*---home---*/
+#homeSlider .artContainer { margin-top:0; margin-bottom:0; }
+    
+  
+
+/*---fonts---*/
+.bree {	font-family:'BreePeruWeb'; }
+.breelight { font-family:'BreePeruWeb-Light'; }
+
+@font-face {
+	font-family:'BreePeruWeb-Light';
+	src: url('fonts/BreePeru_Light.ttf')	format('truetype');
+	font-weight: normal;
 }
 
- liÂ {
-    padding-top: 128px !important;
-    padding-bottom: 128px !important;
+@font-face {
+	font-family:'BreePeruWeb';
+	src: url('fonts/BreePeru_Regular.ttf')	format('truetype');
+	font-weight: normal;
 }
 
-#touchevents .list li:not(.anchor) {
-    padding: 64px 8px;
+@font-face {
+	font-family:'BreePeruWeb';
+	src: url('fonts/BreePeru_Bold.ttf')	format('truetype');
+	font-weight: bold;
 }
 
-#scroll h1 {
-    line-height: 44px;
-    background: black;
-    color: white;
-    text-indent: 10px;
+@font-face {
+    font-family:'Droid Sans';
+    src: url('fonts/DroidSans.ttf')    format('truetype');
+    font-weight: normal;
 }
 
-#scroll img {
-    min-width: 256px;
-    min-height: 128px;
-    background: #333;
+@font-face {
+    font-family:'Droid Sans';
+    src: url('fonts/DroidSans-Bold.ttf')    format('truetype');
+    font-weight: bold;
 }
-#scroll .anchor img {
-    width: 100%;
-    margin-bottom: 4px;
-}
-#scroll .horizontal img {
-    height: 100%;
-    margin-right: 4px;
-}
+
+
+
+
+
+
+
+
