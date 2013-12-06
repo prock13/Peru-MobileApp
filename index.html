@@ -85,14 +85,18 @@
       </div>
     </article>
 
-    <footer>
-      <nav class="icons">                                                
-        <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
-        <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
-        <a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
-        <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
+    <footer id="footer">
+      <nav class="icons">                      
+        <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
+        <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
+        <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
+        <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
       </nav>
     </footer>
+    
+    <script type="text/html" id="footerTemplate">
+      <a class="navButton" data-bind="text:name, attr:{ id:ID, 'data-icon':icon, 'data-view-section':section }"></a>
+    </script>
   </section>
 
 
@@ -104,7 +108,7 @@
 
     <article id="viewLists" class="list scroll">
       <ul class="artContainer">
-        <li class="arrow selectable" data-async="views/list_detail.html" data-view-article="listsDetail"> Mi Lista 1 </li>
+        <li class="arrow selectable" data-view-section="secListsDetail"> Mi Lista 1 </li>
         <li class="arrow selectable"> Mi Lista 2 </li>
         <li class="arrow selectable"> Mi Lista 3 </li>
         <li class="arrow selectable"> Mi Lista 4 </li>
@@ -112,13 +116,21 @@
       </ul>
     </article>
 
+     <footer id="footer">
+        <nav class="icons">                      
+          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+        </nav>
+      </footer>
   </section>
 
 
   <!--listsDetail-->
   <section id="secListDetail" data-transition="slide">
     <header data-title="Mi Lista 1"> 
-      <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+      <nav> <a id="" href="#" data-view-section="back" data-icon="arrow-back" class="on-left"></a></nav>
       <nav class="on-right"> <a id="" data-icon="share" data-view-menu="socials"></a></nav>
     </header>
 
@@ -130,7 +142,7 @@
 
       <ul class="artContainer">
         <li class="anchor contrast">Atractivos</li>
-        <li class="arrow selectable" data-async="views/list_detail_item.html" data-view-article="listsDetailItem"> Mi Atractivo 1 </li>
+        <li class="arrow selectable" data-async="views/list_detail_item.html" data-view-section="secListsDetailItem"> Mi Atractivo 1 </li>
         <li class="arrow selectable"> Mi Atractivo 2 </li>
         <li class="arrow selectable"> Mi Atractivo 3 </li>
 
@@ -144,13 +156,22 @@
       </ul>
 
     </article>
+    
+     <footer id="footer">
+        <nav class="icons">                      
+          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+        </nav>
+      </footer>
   </section>
 
 
   <!--listDetailItem-->
   <section id="secListDetailItem" data-transition="slide">
     <header data-title="Mi Atractivo 1"> 
-      <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+      <nav> <a id="" href="#" data-view-section="back" data-icon="arrow-back" class="on-left"></a></nav>
     </header>
 
     <article id="listsDetailItem">
@@ -165,13 +186,22 @@
       </div>  
 
     </article>
+    
+     <footer id="footer">
+        <nav class="icons">                      
+          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+        </nav>
+      </footer>
   </section>
 
 
   <!--viewBadges-->
   <section id="secBadges" data-transition="slide">
     <header data-title="Mis Insignias"> 
-      <nav> <a id="" href="#" data-view-section="back" data-icon="home" class="on-left"></a></nav>
+      <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
     </header>
 
     <article id="viewBadges" class="list">
@@ -205,6 +235,38 @@
       </ul>
 
     </article>
+    
+     <footer id="footer">
+        <nav class="icons">                      
+          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+        </nav>
+      </footer>
+  </section>
+  
+  <section id="viewMore">
+     <header data-title="Más"> 
+        <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+      </header>
+  
+    <article id="more" class="list">
+      <ul class="artContainer">
+        <li class="arrow" data-async="views/about.html" data-view-article="about"> Acerca de Perú </li>
+        <li class="arrow" data-async="views/tnc.html" data-view-article="tnc"> Términos y Condiciones </li>
+     </ul>     
+    </article>
+    
+     <footer id="footer">
+        <nav class="icons">                      
+          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
+          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+        </nav>
+      </footer>
+  
   </section>
 
 
@@ -214,24 +276,15 @@
   <script src="components/knockout/knockout-3.0.0.js"></script>
   <script src="viewModels/listsViewModel.js"></script>
   <script src="viewModels/badgesViewModel.js"></script>
+  <script src="viewModels/otherViewModel.js"></script>
   <script type="text/javascript" charset="utf-8">
   Lungo.init({
     name: 'Peru Travel App',
     history: false
   });  
-
-  //change select flag
-  function changeflag() {
-    var sel = document.getElementById('login-portal');
-    var option = sel.options[sel.selectedIndex];
-    var txtPortalLang = option.getAttribute('name');
-
-    //var $flag= $$(this).children(':selected').data('name');
-    var path="url('../template/images/flags/"+txtPortalLang+".gif')";
-    document.getElementById('flagpic').style.backgroundImage = path;
-  }
   </script>
   <script src="js/app.js"></script>
+  
   <div id="fb-root"></div>
   <script>
   window.fbAsyncInit = function() {
@@ -251,7 +304,7 @@
     js.src = "//connect.facebook.net/en_US/all.js";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    </script>
-  </body>
-  </html>
+  </script>
+</body>
+</html>
 

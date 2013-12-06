@@ -82,7 +82,40 @@ Lungo.Events.init({
 	},
 */
 
-    'load article#viewLists' : App.showListCount,
+    //'load article#viewLists' : App.showListCount,
+    
+    
+    'load article#listDetal' : function(){
+       //fb share list
+        var portalURL = "";
+        var communityURL = "community/my-passport"; // - comunidad/Mi-Pasaporte
+        var listID = "79";
+        var userID = "488";
+
+        Lungo.dom('#shareFB').tap(function(){ //$$(this).attr('href',"https://www.facebook.com/sharer/sharer.php?u=http://m8staging.com/"+portalURL+communityURL+"/ItineraryId/"+listID+"/userID/"+userID+".aspx");
+
+          FB.ui(
+            {
+              method: 'feed',
+              name: 'Facebook Dialogs',
+              link: 'https://developers.facebook.com/docs/dialogs/',
+              picture: 'http://fbrell.com/f8.jpg',
+              caption: 'Reference Documentation',
+              description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+            },
+            function(response) {
+              if (response && response.post_id) {
+                alert('Post was published.');
+              } else {
+                alert('Post was not published.');
+              }
+            }
+          );
+
+        });//end share tab fb
+      
+      
+    },
 
     'load article#viewBadges' : function() {
     	
@@ -98,3 +131,15 @@ Lungo.ready(function() {
  
 
 });
+
+
+//change select flag
+function changeflag() {
+  var sel = document.getElementById('login-portal');
+  var option = sel.options[sel.selectedIndex];
+  var txtPortalLang = option.getAttribute('name');
+
+  //var $flag= $$(this).children(':selected').data('name');
+  var path="url('../template/images/flags/"+txtPortalLang+".gif')";
+  document.getElementById('flagpic').style.backgroundImage = path;
+}
