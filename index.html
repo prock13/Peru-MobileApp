@@ -50,7 +50,7 @@
           <fieldset class="radius-bottom shadow">
             <label class="select"> 
               <span class="flag" id="flagpic"></span>
-              <select onblur="changeflag()"class="flags" id="login-portal">
+              <select onblur="changeflag()" class="flags" id="login-portal">
                 <option class="first" name="" value="">Selecciona el Portal de Registro</option>
                 <option name="en-int" value="53">International</option>
                 <option name="es-pe" value="1">Perú</option>
@@ -108,7 +108,7 @@
 
     <article id="viewLists" class="list scroll">
       <ul class="artContainer">
-        <li class="arrow selectable" data-view-section="secListsDetail"> Mi Lista 1 </li>
+        <li class="arrow selectable" data-view-section="secListDetail"> Mi Lista 1 </li>
         <li class="arrow selectable"> Mi Lista 2 </li>
         <li class="arrow selectable"> Mi Lista 3 </li>
         <li class="arrow selectable"> Mi Lista 4 </li>
@@ -130,7 +130,7 @@
   <!--listsDetail-->
   <section id="secListDetail" data-transition="slide">
     <header data-title="Mi Lista 1"> 
-      <nav> <a id="" href="#" data-view-section="back" data-icon="arrow-back" class="on-left"></a></nav>
+      <nav> <a id="" href="#" data-view-section="secLists" data-icon="arrow-left" class="on-left"></a></nav>
       <nav class="on-right"> <a id="" data-icon="share" data-view-menu="socials"></a></nav>
     </header>
 
@@ -142,7 +142,7 @@
 
       <ul class="artContainer">
         <li class="anchor contrast">Atractivos</li>
-        <li class="arrow selectable" data-async="views/list_detail_item.html" data-view-section="secListsDetailItem"> Mi Atractivo 1 </li>
+        <li class="arrow selectable" data-view-section="secListDetailItem"> Mi Atractivo 1 </li>
         <li class="arrow selectable"> Mi Atractivo 2 </li>
         <li class="arrow selectable"> Mi Atractivo 3 </li>
 
@@ -171,7 +171,7 @@
   <!--listDetailItem-->
   <section id="secListDetailItem" data-transition="slide">
     <header data-title="Mi Atractivo 1"> 
-      <nav> <a id="" href="#" data-view-section="back" data-icon="arrow-back" class="on-left"></a></nav>
+      <nav> <a id="" href="#" data-view-section="secListDetail" data-icon="arrow-left" class="on-left"></a></nav>
     </header>
 
     <article id="listsDetailItem">
@@ -246,16 +246,20 @@
       </footer>
   </section>
   
-  <section id="viewMore">
+  
+  <!--more-->
+  <section id="secMore"  data-transition="slide">
      <header data-title="Más"> 
-        <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+        <nav> <a id="" href="#" data-view-section="home" data-icon="home" data-article="more" class="on-left"></a></nav>
+        <nav> <a id="" href="#" data-view-article="more" data-icon="arrow-left" data-article="about" class="on-left"></a></nav>
+        <nav> <a id="" href="#" data-view-article="more" data-icon="arrow-left" data-article="tnc" class="on-left"></a></nav>
       </header>
   
     <article id="more" class="list">
       <ul class="artContainer">
-        <li class="arrow" data-async="views/about.html" data-view-article="about"> Acerca de Perú </li>
-        <li class="arrow" data-async="views/tnc.html" data-view-article="tnc"> Términos y Condiciones </li>
-     </ul>     
+        <li class="arrow" data-view-article="about" data-async="views/about.html"> Acerca de Perú </li>
+        <li class="arrow" data-view-article="tnc" data-async="views/tnc.html"> Términos y Condiciones </li>
+     </ul>                                      
     </article>
     
      <footer id="footer">
@@ -282,6 +286,18 @@
     name: 'Peru Travel App',
     history: false
   });  
+  
+  //change select flag
+  function changeflag() {
+    var sel = document.getElementById('login-portal');
+    var option = sel.options[sel.selectedIndex];
+    var txtPortalLang = option.getAttribute('name');
+
+    //var $flag= $$(this).children(':selected').data('name');
+    var path="url('../template/images/flags/"+txtPortalLang+".gif')";
+    document.getElementById('flagpic').style.backgroundImage = path;
+  }
+  
   </script>
   <script src="js/app.js"></script>
   
