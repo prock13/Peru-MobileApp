@@ -31,15 +31,16 @@ Lungo.Events.init({
 		} else if (txtPortalID == '') {
 			Lungo.Notification.error("Error","Please select a portal", "cancel", 3);
 		} else {
-			//alert (txtUserName + ' , ' + txtPassword + ' , ' + txtPortalID + ' , ' + txtPortalLang);
 	
 			var goHome = function(){
-				Lungo.Router.section('home');	
+				Lungo.Router.section('home');
+				Lungo.Notification.hide();	
 			};
 	
 	       $$.ajax({
 	            type: 'GET', 
 	            url: 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/AuthenticateUser',
+				//HARDCODED USER/PASS DURING DEV 
 				//data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
 	            data: {name: 'test250', pass: 'testtest', portal: '6'},
 	            dataType: 'json', 
@@ -47,15 +48,20 @@ Lungo.Events.init({
 	            success: function(response) {
 	            	if (response.message) {
 					   	Lungo.Notification.error("Error","Login Info Incorrect.  Please try again.", "cancel", 3);
-					} else {					
+					} else {
+						var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
+						Lungo.Cache.set("lungoUserInfo", userInfoArray);					
+						//PMA: Show loading instead of success notification for live app: Lungo.Notification.show();
 						Lungo.Notification.success("Success","UID: "+response.uid, "check", 3, goHome);
+						//var cachedInfo = Lungo.Cache.get("lungoUserInfo");
+						//console.log('cache0: '+ cachedInfo['uid']);
 					};				
 	            },
 	            error: function(xhr, type) { 
 	                Lungo.Notification.error("Error","Login Error.  Please try again.", "cancel", 3);
 	            }
 	        });
-		}
+		} // end if
     },
     
 	'load section#home': function(event) {
@@ -70,12 +76,43 @@ Lungo.Events.init({
 		
 	},
    
-/*
+
 	'touch #list-nav': function() {
-		$$('header > h1').html($$(this).attr('data-title'));
-		Lungo.Router.section('secLists');
+
+/*		
+		$$.ajaxSettings = {
+		    async: true,
+		    success: {},
+		    error: {},
+		    timeout: 10
+		};
+
+		$$.ajaxSettings.async = true;
+		$$.ajaxSettings.dataType = 'xml';		
+		//var txtURL = 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems';
+		//var response = $$.get(txtURL, {name: txtUserName, pass: txtPassword});
+		var response = $$.get('http://m8staging.com/es-es/desktopmodules/AuthServices/API/PassPort.ashx/GetActivePortals');		
+		console.log(response);
+*/
+/*
+	       $$.ajax({
+	            type: 'GET', 
+	            url: 'http://m8staging.com/es-es/desktopmodules/AuthServices/API/PassPort.ashx/GetActivePortals',
+	            //data: {name: txtUserName, pass: txtPassword},
+	            dataType: 'xml', 
+	            async: true,
+	            success: function(response) {
+	            	alert(response);
+					//Lungo.Notification.success("Success","Success", "check", 3);
+	            },
+	            error: function(xhr, type) { 
+	                Lungo.Notification.error("Error","Login Error.  Please try again.", "cancel", 3);
+	            }
+	        });
+*/
 	},
 
+/*
 	'touch #badge-nav': function() {
 		$$('header > h1').html($$(this).attr('data-title'));
 		Lungo.Router.section('secBadges');		

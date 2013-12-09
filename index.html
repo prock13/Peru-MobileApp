@@ -103,12 +103,8 @@
     </header>
 
     <article id="viewLists" class="list scroll">
-      <ul class="artContainer">
-        <li class="arrow selectable" data-async="views/list_detail.html" data-view-article="listsDetail"> Mi Lista 1 </li>
-        <li class="arrow selectable"> Mi Lista 2 </li>
-        <li class="arrow selectable"> Mi Lista 3 </li>
-        <li class="arrow selectable"> Mi Lista 4 </li>
-        <li class="arrow selectable"> Mi Lista 5 </li>
+      <ul class="artContainer" data-bind='foreach: lists'>
+        <li class="arrow selectable" data-async="views/list_detail.html" data-view-article="listsDetail"><span data-bind='text: $data'>&nbsp;</span></li>
       </ul>
     </article>
 
@@ -212,6 +208,7 @@
   <script src="components/quojs/quo.js"></script>
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="viewModels/listsViewModel.js"></script>
   <script src="viewModels/badgesViewModel.js"></script>
   <script type="text/javascript" charset="utf-8">
