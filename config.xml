@@ -39,5 +39,7 @@
     <gap:splash src="images/appicons/720x1280.png"      gap:platform="android"  gap:density="xhdpi" />
     <gap:splash src="images/appicons/Default.png"       gap:platform="ios"      width="320" height="480" />
     <gap:splash src="images/appicons/Default@2x.png"    gap:platform="ios"      width="640" height="960" />
+    
+    <gap:plugin name="nl.x-services.plugins.socialsharing" />
 
 </widget>
