@@ -49,8 +49,6 @@ function AppViewModel() {
 		var txtUserName = 'test250';
 	    var txtPassword = 'testtest';
 	    var txtPortalLang  = 'es-es';
-	    var badge = '';
-	    var badgeTxt = '';	
 	
 		jQuery.ajax({
 	        type: "GET",
@@ -60,15 +58,24 @@ function AppViewModel() {
 	        cache: false,
 	        dataType: "xml",
 	        success: function(xml) {
+	            //User Badges
 	            $(xml).find('earnedbadges').each(function() {
 	            	$(this).find("badge").each(function() {
-	                	badge = $(this).text();
-	                	self.userBadgesList.push(badge);
+	                	var userBadgeURL = $(this).text();
+	                	self.userBadgesList.push(userBadgeURL);
 					});
 	            });
+	            
+				//All Badges
+	            $(xml).find('allbadges').each(function() {
+	            	$(this).find("badge").each(function() {
+	                	var allBadgeURL = $(this).text();
+	                	self.allBadgesList.push(allBadgeURL);
+					});
+	            });	            
 	        },
 	        error: function(xhr, type) { 
-	                Lungo.Notification.error("Error","Login Error.  Please try again.", "cancel", 3);
+	                Lungo.Notification.error("Error","Error retrieving badges.", "cancel", 3);
 	        }            
 	    });
 	};
