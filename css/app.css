@@ -1,5 +1,5 @@
-pho/*--resets--*/
-body { font: 15px/1.25 "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+/*--resets--*/
+body.app { font: 95%/1.25 "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 body > section > header { background:#d52b1e; -webkit-box-shadow:inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1);background: #d25349; /* Old browsers */background: -moz-linear-gradient(top, #d25349 0%, #cf2417 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d25349), color-stop(100%,#cf2417)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #d25349 0%,#cf2417 100%); /* Chrome10+,Safari5.1+ */
 background: linear-gradient(to bottom, #d25349 0%,#cf2417 100%); /* W3C */
