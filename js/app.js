@@ -76,7 +76,7 @@ Lungo.Events.init({
 		
 	},
    
-    'load secton#secLists' : function() {
+    'load section#secLists' : function() {
 	    getListItems();
     },
        

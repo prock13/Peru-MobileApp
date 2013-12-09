@@ -87,16 +87,12 @@
 
     <footer class="footer">
       <nav class="icons">                      
-        <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-        <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-        <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-        <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
+       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
+       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
+       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
       </nav>
     </footer>
-    
-    <script type="text/html" id="footerTemplate">
-      <a class="navButton" data-bind="text:name, attr:{ id:ID, 'data-icon':icon, 'data-view-section':section }"></a>
-    </script>
   </section>
 
 
@@ -114,10 +110,10 @@
 
      <footer class="footer">
         <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
   </section>
@@ -155,10 +151,10 @@
     
      <footer class="footer">
         <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
   </section>
@@ -184,10 +180,10 @@
     
      <footer class="footer">
         <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
   </section>
@@ -231,10 +227,10 @@
     
      <footer class="footer">
         <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
   </section>
@@ -257,10 +253,10 @@
     
      <footer class="footer">
         <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
   
@@ -274,7 +270,6 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="viewModels/listsViewModel.js"></script>
   <script src="viewModels/badgesViewModel.js"></script>
-  <script src="viewModels/otherViewModel.js"></script>
   <script type="text/javascript" charset="utf-8">
   Lungo.init({
     name: 'Peru Travel App',
@@ -288,7 +283,7 @@
     var txtPortalLang = option.getAttribute('name');
 
     //var $flag= $$(this).children(':selected').data('name');
-    var path="url('../template/images/flags/"+txtPortalLang+".gif')";
+    var path="url('images/flags/"+txtPortalLang+".gif')";
     document.getElementById('flagpic').style.backgroundImage = path;
   }
   
