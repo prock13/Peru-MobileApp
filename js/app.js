@@ -76,10 +76,15 @@ Lungo.Events.init({
 		
 	},
    
+<<<<<<< HEAD
     'load section#secLists' : function() {
 	    getListItems();
+=======
+/*    'load section#secLists' : function() {
+	    ko.getListItems();
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
     },
-       
+*/       
     'load article#listDetal' : function(){
        //fb share list
         var portalURL = "";
@@ -111,10 +116,6 @@ Lungo.Events.init({
       
     },
 
-    'load article#viewBadges' : function() {
-    	
-	},
-	
 
 });
 

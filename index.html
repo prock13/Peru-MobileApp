@@ -85,14 +85,24 @@
       </div>
     </article>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <nav class="icons">                      
+<<<<<<< HEAD
        <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
        <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges">Insignias</a>
        <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"> Más </a>
        <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
       </nav>
     </footer>
+=======
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
+   
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   </section>
 
 
@@ -108,6 +118,7 @@
       </ul>
     </article>
 
+<<<<<<< HEAD
      <footer class="footer">
         <nav class="icons">                      
            <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
@@ -116,6 +127,16 @@
            <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
+=======
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   </section>
 
 
@@ -149,6 +170,7 @@
 
     </article>
     
+<<<<<<< HEAD
      <footer class="footer">
         <nav class="icons">                      
            <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
@@ -157,6 +179,16 @@
            <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
+=======
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   </section>
 
   <!--listDetailItem-->
@@ -178,6 +210,7 @@
 
     </article>
     
+<<<<<<< HEAD
      <footer class="footer">
         <nav class="icons">                      
            <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
@@ -186,6 +219,16 @@
            <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
+=======
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   </section>
 
 
@@ -200,8 +243,8 @@
       <ul class="artContainer">
         <li class="anchor contrast">Mis Insignias</li>
         <li> 
-          <div class="listGrid" data-bind='foreach: userBadgesLists'>
-            <img data-bind="attr: { src: badgesURL, alt: badgesID }" width="80" height="80" alt="">
+          <div class="listGrid" data-bind='foreach: userBadgesList'>
+            <img data-bind="attr: { src: badgesURL }" width="80" height="80" alt="">
           </div>
         </li>
       </ul>
@@ -225,6 +268,7 @@
 
     </article>
     
+<<<<<<< HEAD
      <footer class="footer">
         <nav class="icons">                      
            <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
@@ -233,6 +277,16 @@
            <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
+=======
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   </section>
   
   
@@ -251,6 +305,7 @@
      </ul>                                      
     </article>
     
+<<<<<<< HEAD
      <footer class="footer">
         <nav class="icons">                      
            <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists">Listas</a>
@@ -259,6 +314,16 @@
            <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>
         </nav>
       </footer>
+=======
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   
   </section>
 
@@ -268,8 +333,12 @@
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<<<<<<< HEAD
   <script src="viewModels/listsViewModel.js"></script>
   <script src="viewModels/badgesViewModel.js"></script>
+=======
+  <script src="viewModels/appViewModel.js"></script>
+>>>>>>> 6c1e0c776600655690812c46bd9373644f08859a
   <script type="text/javascript" charset="utf-8">
   Lungo.init({
     name: 'Peru Travel App',
