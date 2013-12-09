@@ -107,12 +107,8 @@
     </header>
 
     <article id="viewLists" class="list scroll">
-      <ul class="artContainer">
-        <li class="arrow selectable" data-view-section="secListDetail"> Mi Lista 1 </li>
-        <li class="arrow selectable"> Mi Lista 2 </li>
-        <li class="arrow selectable"> Mi Lista 3 </li>
-        <li class="arrow selectable"> Mi Lista 4 </li>
-        <li class="arrow selectable"> Mi Lista 5 </li>
+      <ul class="artContainer" data-bind='foreach: lists'>
+        <li class="arrow selectable" data-view-section="secListDetail" data-bind='text: $data'> </li>
       </ul>
     </article>
 
@@ -209,10 +205,8 @@
       <ul class="artContainer">
         <li class="anchor contrast">Mis Insignias</li>
         <li> 
-          <div class="listGrid">
-            <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-            <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
-            <img src="images/badges/unlocked/1.png" width="80" height="80" alt="">
+          <div class="listGrid" data-bind='foreach: userBadgesLists'>
+            <img data-bind="attr: { src: badgesURL, alt: badgesID }" width="80" height="80" alt="">
           </div>
         </li>
       </ul>
@@ -278,6 +272,7 @@
   <script src="components/quojs/quo.js"></script>
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" ></script>
   <script src="viewModels/listsViewModel.js"></script>
   <script src="viewModels/badgesViewModel.js"></script>
   <script src="viewModels/otherViewModel.js"></script>
