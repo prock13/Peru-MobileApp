@@ -85,18 +85,15 @@
       </div>
     </article>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <nav class="icons">                      
-        <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-        <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-        <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-        <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
-      </nav>
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
     </footer>
-    
-    <script type="text/html" id="footerTemplate">
-      <a class="navButton" data-bind="text:name, attr:{ id:ID, 'data-icon':icon, 'data-view-section':section }"></a>
-    </script>
+   
   </section>
 
 
@@ -112,14 +109,14 @@
       </ul>
     </article>
 
-     <footer class="footer">
-        <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
-        </nav>
-      </footer>
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
   </section>
 
 
@@ -153,14 +150,14 @@
 
     </article>
     
-     <footer class="footer">
-        <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
-        </nav>
-      </footer>
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
   </section>
 
   <!--listDetailItem-->
@@ -182,14 +179,14 @@
 
     </article>
     
-     <footer class="footer">
-        <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
-        </nav>
-      </footer>
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
   </section>
 
 
@@ -204,8 +201,8 @@
       <ul class="artContainer">
         <li class="anchor contrast">Mis Insignias</li>
         <li> 
-          <div class="listGrid" data-bind='foreach: userBadgesLists'>
-            <img data-bind="attr: { src: badgesURL, alt: badgesID }" width="80" height="80" alt="">
+          <div class="listGrid" data-bind='foreach: userBadgesList'>
+            <img data-bind="attr: { src: badgesURL }" width="80" height="80" alt="">
           </div>
         </li>
       </ul>
@@ -229,14 +226,14 @@
 
     </article>
     
-     <footer class="footer">
-        <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
-        </nav>
-      </footer>
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
   </section>
   
   
@@ -255,14 +252,14 @@
      </ul>                                      
     </article>
     
-     <footer class="footer">
-        <nav class="icons">                      
-          <a data-bind="template: { name: 'footerTemplate', data:lists }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:badges }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:more }"></a>
-          <a data-bind="template: { name: 'footerTemplate', data:out }"></a>
-        </nav>
-      </footer>
+    <footer id="footer" class="footer">
+      <nav class="icons">                      
+		<a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+		<a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+		<a id="more-nav" class="navButton" data-icon="info-sign" data-view-article="more" data-async="views/more.html" data-title="Más"> Más </a>
+		<a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"> Cerrar Sesión </a>      
+	  </nav>
+    </footer>
   
   </section>
 
@@ -272,9 +269,7 @@
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="viewModels/listsViewModel.js"></script>
-  <script src="viewModels/badgesViewModel.js"></script>
-  <script src="viewModels/otherViewModel.js"></script>
+  <script src="viewModels/appViewModel.js"></script>
   <script type="text/javascript" charset="utf-8">
   Lungo.init({
     name: 'Peru Travel App',

@@ -76,10 +76,10 @@ Lungo.Events.init({
 		
 	},
    
-    'load secton#secLists' : function() {
-	    getListItems();
+/*    'load section#secLists' : function() {
+	    ko.getListItems();
     },
-       
+*/       
     'load article#listDetal' : function(){
        //fb share list
         var portalURL = "";
@@ -111,10 +111,6 @@ Lungo.Events.init({
       
     },
 
-    'load article#viewBadges' : function() {
-    	
-	},
-	
 
 });
 

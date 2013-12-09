@@ -5,4 +5,5 @@ function footerTemplateModel() {
     this.out = { name:'Cerrar Sesión', ID:'btnLogout', icon:'signout', section:'main'};
 }
 
-ko.applyBindings(new footerTemplateModel(), document.getElementsByClassName("footer")[0]);
+//ko.applyBindings(new footerTemplateModel(), document.getElementsByClassName("footer")[0]);
+ko.applyBindings(new footerTemplateModel(), document.getElementById('footer'));
