@@ -13,7 +13,7 @@ function AppViewModel() {
 */
 
 
-	// LISTS  ////////////////////////////////////
+	// LISTS  ///////////////////////////////////
     self.listDetail = ko.observableArray();
 
 	self.getListItems = function() {
@@ -25,7 +25,7 @@ function AppViewModel() {
 	        cache: false,
 	        dataType: "xml",
 	        success: function(xml) {
-	        	listResults = xml;
+	        	//listResults = xml;
 	        	var nid = ''; 
 	        	var name = '';
 	            $(xml).find('list').each(function(){
