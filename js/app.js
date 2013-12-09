@@ -76,52 +76,10 @@ Lungo.Events.init({
 		
 	},
    
-
-	'touch #list-nav': function() {
-
-/*		
-		$$.ajaxSettings = {
-		    async: true,
-		    success: {},
-		    error: {},
-		    timeout: 10
-		};
-
-		$$.ajaxSettings.async = true;
-		$$.ajaxSettings.dataType = 'xml';		
-		//var txtURL = 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems';
-		//var response = $$.get(txtURL, {name: txtUserName, pass: txtPassword});
-		var response = $$.get('http://m8staging.com/es-es/desktopmodules/AuthServices/API/PassPort.ashx/GetActivePortals');		
-		console.log(response);
-*/
-/*
-	       $$.ajax({
-	            type: 'GET', 
-	            url: 'http://m8staging.com/es-es/desktopmodules/AuthServices/API/PassPort.ashx/GetActivePortals',
-	            //data: {name: txtUserName, pass: txtPassword},
-	            dataType: 'xml', 
-	            async: true,
-	            success: function(response) {
-	            	alert(response);
-					//Lungo.Notification.success("Success","Success", "check", 3);
-	            },
-	            error: function(xhr, type) { 
-	                Lungo.Notification.error("Error","Login Error.  Please try again.", "cancel", 3);
-	            }
-	        });
-*/
-	},
-
-/*
-	'touch #badge-nav': function() {
-		$$('header > h1').html($$(this).attr('data-title'));
-		Lungo.Router.section('secBadges');		
-	},
-*/
-
-    //'load article#viewLists' : App.showListCount,
-    
-    
+    'load secton#secLists' : function() {
+	    getListItems();
+    },
+       
     'load article#listDetal' : function(){
        //fb share list
         var portalURL = "";
