@@ -83,7 +83,7 @@ Lungo.Events.init({
         var listID = "79";
         var userID = "488";
 
-        Lungo.dom('#shareFB').tap(function(){
+       /* Lungo.dom('#shareFB').tap(function(){
           FB.ui(
             {
               method: 'feed',
@@ -92,18 +92,18 @@ Lungo.Events.init({
               picture: '/images/logo-peru@2x.png',
               caption: 'Peru Travel App - My List', //lang specific
               description: 'Find the most complete guide for vacations in Peru, with the main destinations, attractions, activities, offers, and more.' //lang specific
-            }/*,
+            },
             function(response) {
               if (response && response.post_id) {
                 alert('Post was published.');
               } else {
                 alert('Post was not published.');
               }
-            }*/
+            }
           );
 
         });//end share tab fb
-      
+      */
       
     },
 

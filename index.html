@@ -121,7 +121,7 @@
   <section id="secListDetail" data-transition="slide">
     <header data-title="Mi Lista 1"> 
       <nav> <a id="" href="#" data-view-section="secLists" data-icon="arrow-left" class="on-left"></a></nav>
-      <nav class="on-right"> <a onclick="window.plugins.socialsharing.share('Hello!')" id="" data-icon="share" data-view-menu="socials"></a></nav>
+      <nav class="on-right"> <a onclick="window.plugins.socialsharing.share('Hi!')" id="" data-icon="share" data-view-menu="socials"></a></nav>
     </header>
 
     <nav id="socials" data-control="menu">
@@ -257,8 +257,9 @@
   <script src="components/quojs/quo.js"></script>
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
+  <script src="phonegap.js"></script>
   <script src="components/pgplugins/SocialSharing.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
   <script src="viewModels/appViewModel.js"></script>
   <script type="text/javascript" charset="utf-8">
   Lungo.init({
@@ -280,7 +281,7 @@
   </script>
   <script src="js/app.js"></script>
   
-  <div id="fb-root"></div>
+  <!--div id="fb-root"></div>
   <script>
   window.fbAsyncInit = function() {
     // init the FB JS SDK
@@ -299,7 +300,7 @@
     js.src = "//connect.facebook.net/en_US/all.js";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script>
+  </script-->
 </body>
 </html>
 
