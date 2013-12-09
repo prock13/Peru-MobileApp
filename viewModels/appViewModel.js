@@ -16,7 +16,8 @@ function AppViewModel() {
 		//PMA - TESTING WITH HARDCODED DATA!!
 		var txtUserName = 'test250';
 	    var txtPassword = 'testtest';
-	    var txtPortalLang  = 'es-es';	
+	    var txtPortalLang  = 'es-es';
+	    var name = '';	
 	
 		jQuery.ajax({
 	        type: "GET",
@@ -26,11 +27,9 @@ function AppViewModel() {
 	        cache: false,
 	        dataType: "xml",
 	        success: function(xml) {
-	        	var i = 0;
 	            $(xml).find('list').each(function(){
-	                var name = $(this).find("listname").text()
+	                name = $(this).find("listname").text()
 					self.lists.push(name);
-					i = i + 1;
 	            });
 	        },
 	        error: function(xhr, type) { 
@@ -43,13 +42,15 @@ function AppViewModel() {
 	// BADGES  ////////////////////////////////////
     self.userBadgesTitle = 'Mis Sellos';
     self.userBadgesList = ko.observableArray();
-    //self.userBadgesLists = ko.observableArray([{badgesURL: 'images/badges/unlocked/1.png', badgesID: 15}, {badgesURL: 'images/badges/unlocked/2.png', badgesID: 25}]);   
+    self.allBadgesList = ko.observableArray();
     
 	self.getBadgeItems = function () {
 		//PMA - TESTING WITH HARDCODED DATA!!
 		var txtUserName = 'test250';
 	    var txtPassword = 'testtest';
-	    var txtPortalLang  = 'es-es';	
+	    var txtPortalLang  = 'es-es';
+	    var badge = '';
+	    var badgeTxt = '';	
 	
 		jQuery.ajax({
 	        type: "GET",
@@ -59,13 +60,11 @@ function AppViewModel() {
 	        cache: false,
 	        dataType: "xml",
 	        success: function(xml) {
-	        	var i = 0;
-	            $(xml).find('earnedbadges').each(function(){
-	                var badge = $(this).find("badge").text()
-	                var badgeTxt = "{badgesURL: '" + badge + "'},";
-	                alert(badgeTxt);
-					self.userBadgesList.push(badgeTxt);
-					i = i + 1;
+	            $(xml).find('earnedbadges').each(function() {
+	            	$(this).find("badge").each(function() {
+	                	badge = $(this).text();
+	                	self.userBadgesList.push(badge);
+					});
 	            });
 	        },
 	        error: function(xhr, type) { 
