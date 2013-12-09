@@ -36,6 +36,7 @@ body > section > article p a { color:#666; font-weight: bold; text-decoration: u
 .list .artContainer{width:100%;}
 .artContainer .anchor.contrast {padding-top:8px!important;height:35px;background: #e8e8e8; /* Old browsers */
 background: -moz-linear-gradient(top, #e8e8e8 0%, #cfcece 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e8e8e8), color-stop(100%,#cfcece)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* Chrome10+,Safari5.1+ *background: -o-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* Opera 11.10+ */background: -ms-linear-gradient(top, #e8e8e8 0%,#cfcece 100%); /* IE10+ */background: linear-gradient(to bottom, #e8e8e8 0%,#cfcece 100%); /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#cfcece',GradientType=0 ); /* IE6-9 */color:#777;}
+ .app  #secBadges #viewBadges{overflow:auto;}
 
 /*---index---*/
 #main { background: url('../images/home/slider1.png') repeat-x top center; }
@@ -49,6 +50,17 @@ background: -moz-linear-gradient(top, #e8e8e8 0%, #cfcece 100%); /* FF3.6+ */bac
   .form.block > label { display: block; text-align: center; }
     .block > label a { color:#fff; text-decoration: underline; }
     
+   section .list li.selectable:active, section .list li a.selectable:active, section .list li.theme, section .list li a.theme, section .list li.active, section .list li a.active{background:#777;}
+   
+   form input[type="text"]:focus, .form input[type="text"]:focus, form input[type="password"]:focus, .form input[type="password"]:focus, form input[type="date"]:focus, .form input[type="date"]:focus, form input[type="datetime"]:focus, .form input[type="datetime"]:focus, form input[type="email"]:focus, .form input[type="email"]:focus, form input[type="number"]:focus, .form input[type="number"]:focus, form input[type="search"]:focus, .form input[type="search"]:focus, form input[type="tel"]:focus, .form input[type="tel"]:focus, form input[type="time"]:focus, .form input[type="time"]:focus, form input[type="url"]:focus, .form input[type="url"]:focus, form select:focus, .form select:focus, form textarea:focus, .form textarea:focus, form label.select:focus, .form label.select:focus, form input[type="text"]:active, .form input[type="text"]:active, form input[type="password"]:active, .form input[type="password"]:active, form input[type="date"]:active, .form input[type="date"]:active, form input[type="datetime"]:active, .form input[type="datetime"]:active, form input[type="email"]:active, .form input[type="email"]:active, form input[type="number"]:active, .form input[type="number"]:active, form input[type="search"]:active, .form input[type="search"]:active, form input[type="tel"]:active, .form input[type="tel"]:active, form input[type="time"]:active, .form input[type="time"]:active, form input[type="url"]:active, .form input[type="url"]:active, form select:active, .form select:active, form textarea:active, .form textarea:active, form label.select:active, .form label.select:active, form input[type="text"]:hover, .form input[type="text"]:hover, form input[type="password"]:hover, .form input[type="password"]:hover, form input[type="date"]:hover, .form input[type="date"]:hover, form input[type="datetime"]:hover, .form input[type="datetime"]:hover, form input[type="email"]:hover, .form input[type="email"]:hover, form input[type="number"]:hover, .form input[type="number"]:hover, form input[type="search"]:hover, .form input[type="search"]:hover, form input[type="tel"]:hover, .form input[type="tel"]:hover, form input[type="time"]:hover, .form input[type="time"]:hover, form input[type="url"]:hover, .form input[type="url"]:hover, form select:hover, .form select:hover, form textarea:hover, .form textarea:hover, form label.select:hover, .form label.select:hover{ color:#777;}
+.form label.select:hover,.form label.select:after{border-color:#777;color:#777;}
+
+.form select:focus:after, .form select:focus:after, form label.select:focus:after, .form label.select:focus:after, form select:active:after, .form select:active:after, form label.select:active:after, .form label.select:active:after, form select:hover:after, .form select:hover:after, form label.select:hover:after, .form label.select:hover:after{color:#777;}
+
+     
+/************social  network***********/
+section header > nav.on-right a, section header > nav.on-right button{text-shadow:none;}
+nav[data-control=menu]:not(.icons) > a:hover > .icon{color:#f1f1f1;}
 
 /*---home---*/
 #homeSlider .artContainer { margin-top:0; margin-bottom:0; }
