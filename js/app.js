@@ -6,10 +6,22 @@ var App = (function(lng, undefined) {
   	var setLanguageStrings = function() {
 		var cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
 		txtPortalLang = cachedUserInfo['portalLang'];	
+		
+	  	switch (txtPortalLang) {
+		  	case 'es-es':
+		  		var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', btnOut: 'Cerrar Sesión', strUsernameReq: 'Se requiere nombre de usuario' };
+		  	break;
+		  	
+		  	case 'en-us':
+		  		var langStringsArray = { name: 'en-us', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', btnOut: 'Cerrar Sesión', strUsernameReq: 'Se requiere nombre de usuario' };
+		  	break;
+	  	}  	
+
+		Lungo.Cache.set("langStrings", langStringsArray);
 	};
 
 	var getLanguageStrings = function() {
-	  	var esLangStrings = {btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', strUsernameReq: 'Se requiere nombre de usuario' };
+	  	var esLangStrings = { btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', strUsernameReq: 'Se requiere nombre de usuario' };
 	  	switch (txtPortalLang) {
 		  	case 'es-es':
 		  		//esLangStrings.push();

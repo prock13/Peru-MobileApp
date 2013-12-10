@@ -15,6 +15,22 @@ function AppViewModel() {
 		txtPortalLang = cachedUserInfo['portalLang'];
 	};
 
+	// LANGUAGE SELECT //////////////////////////////////////	  
+	self.theLang = ko.observable( langStrings['es-es'] );
+	self.selectedLanguage = ko.observable();
+	
+	self.getStrings = function(langs) {
+		return self.selectedLanguage(langs);
+	};
+	
+	var langs = function(langStrings) {
+	   this.name = langs.name;
+	   this.btnLists = langs.btnLists;
+	   this.btnBadges = langs.btnBadges;
+	   this.btnMore = langs.btnMore;
+	   this.btnOut = langs.btnOut;
+	};
+
 	// LISTS  ///////////////////////////////////
     self.lists = ko.observableArray();
     self.chosenListId = ko.observableArray();
