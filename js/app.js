@@ -66,11 +66,13 @@ Lungo.Events.init({
 					   	Lungo.Notification.error("Error",response.message, "cancel", 3);
 					} else {
 						var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
+						//HARDCODED INFO DURING DEV 
 						//var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
-						Lungo.Cache.set("lungoUserInfo", userInfoArray);					
-						Lungo.Notification.show();
-						App.setLanguageStrings();
-						goHome();
+						Lungo.Cache.set("lungoUserInfo", userInfoArray);  //set global Cache			
+						Lungo.Notification.show();    //show loading animation
+						App.setLanguageStrings();     //setup language strings
+						Lungo.Router.section('home'); // go to the Home section
+						Lungo.Notification.hide();    //hide loading animation
 					};				
 	            },
 	            error: function(xhr, type) { 
