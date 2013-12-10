@@ -1,5 +1,5 @@
 /*--resets--*/
-body.app { font: 98%/1.25 "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+body.app { font: 96%/125% "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 body > section > header { background:#d52b1e; -webkit-box-shadow:inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0 -1px #C1170A, 0 1px rgba(0, 0, 0, 0.1);background: #d25349; /* Old browsers */background: -moz-linear-gradient(top, #d25349 0%, #cf2417 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d25349), color-stop(100%,#cf2417)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #d25349 0%,#cf2417 100%); /* Chrome10+,Safari5.1+ */
 background: linear-gradient(to bottom, #d25349 0%,#cf2417 100%); /* W3C */
@@ -25,11 +25,15 @@ body > section > article p a { color:#666; font-weight: bold; text-decoration: u
 
 /*---containers---*/
 .artContainer{width: 96%; margin:2% auto;}
-.artContainer  p{ text-align:justify; }
+.artContainer  p{ text-align:justify; font-size: 14px; }
+  .artContainer p.indented { padding:10px; }
   .artContainer .block { margin:1% auto; }
   .artContainer h2.title { font-family:'BreePeruWeb-Light'; }
-  .artContainer h2 { padding:10px 0px;color:#C1170A; }
-  .artContainer h4 { padding:5px 0px;}
+  .artContainer h2 { padding:10px 0px; color:#C1170A; font-size:17px; }
+  .artContainer h4 { padding:5px 0px;font-size: 15px;}
+    .artContainer h4.indented { padding-left:5px; }
+    .artContainer h4 + p { padding-top:5px; }
+    .artContainer h4 + p + h4 { padding-top:15px; }
   
 /*-------badges-------*/
 .listGrid img{margin:5px;width:29%;height:auto;}
@@ -41,7 +45,7 @@ background: -moz-linear-gradient(top, #e8e8e8 0%, #cfcece 100%); /* FF3.6+ */bac
 /*---index---*/
 #main { background: url('../images/home/slider1.png') repeat-x top center; }
   #main > article { background:none; }
-  #main .info { background-color: #fff; padding:1em 0.7em; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:5%; margin-bottom:2.5%; text-align: center; }
+  #main .info { background-color: #fff; padding:1em 0.7em; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:45px; margin-bottom:2.5%; text-align: center; }
     #main .info p { font-size:90%; }
   header .icon { margin-left: 2%; }
   .select .flag { display:inline-block; width: 27px; height:18px; vertical-align:text-bottom; background-image:url('../images/flags/en-int.gif'); background-repeat: repeat-y; background-position: left center; }
