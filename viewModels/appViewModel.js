@@ -14,9 +14,11 @@ function AppViewModel() {
 
 
 	// LISTS  ///////////////////////////////////
-    self.listDetail = ko.observableArray();
+    self.lists = ko.observableArray();
+    self.chosenListId = ko.observableArray();
 
 	self.getListItems = function() {
+		self.lists([]);  //reset array
 		jQuery.ajax({
 	        type: "GET",
 	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems",
@@ -25,13 +27,9 @@ function AppViewModel() {
 	        cache: false,
 	        dataType: "xml",
 	        success: function(xml) {
-	        	//listResults = xml;
-	        	var nid = ''; 
-	        	var name = '';
+	        	listResults = xml;
 	            $(xml).find('list').each(function(){
-	                listNid = $(this).find("nid").text();
-	                listName = $(this).find("listname").text();
-					self.listDetail.push({nid: listNid , listname: listName});					
+					self.lists.push({nid: $(this).find("nid").text() , listname: $(this).find("listname").text()});					
 	            });
 	        },
 	        error: function(xhr, type) { 
@@ -41,8 +39,29 @@ function AppViewModel() {
 	};
 
 	// LIST DETAILS  ////////////////////////////////////
-	self.getListDetails	 = function() {
-		alert("It's working!");	
+	self.listDetails = ko.observableArray();
+	self.getListDetails	= function(chosenList) {
+		self.listDetails([]);  //reset array	
+        myListDetails = $(listResults).find('list').filter(function(){
+           return $(this).find("nid").text() == chosenList.nid;
+        });
+        
+        myListDetails.find('item').each(function() {
+			self.listDetails.push({itemID: $(this).find("itemid").text() , titleItem: $(this).find("titleitem").text()});		
+        });
+        			
+	};
+
+
+	// ITEM DETAILS //////////////////////////////////////
+	self.itemDetails = ko.observableArray();	
+	self.getItemDetails = function(chosenItem) {
+		self.itemDetails([]);  //reset array
+		myEventDetails = $(listResults).find('item').filter(function(){
+           return $(this).find("itemid").text() == chosenItem.itemID;
+        });
+        
+		self.itemDetails.push({itemID2: myEventDetails.find("itemid").text(), titleItem2: myEventDetails.find("titleitem").text(), categoryitem: myEventDetails.find("categoryitem").text(), subcategoryitem: myEventDetails.find("subcategoryitem").text(), thumbnail: myEventDetails.find("thumbnail").text(), destinationid: myEventDetails.find("destinationid").text(), ejeid: myEventDetails.find("ejeid").text(), description: myEventDetails.find("description").text(), isbadgeearn: myEventDetails.find("isbadgeearn").text()});		
 	};
 
 	// BADGES  ////////////////////////////////////
@@ -51,6 +70,8 @@ function AppViewModel() {
     self.allBadgesList = ko.observableArray();
 
 	self.getBadgeItems = function() {
+		self.userBadgesList([]);  //reset array
+		self.allBadgesList([]);  //reset array
 		jQuery.ajax({
 	        type: "GET",
 	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetBadgeItems",
