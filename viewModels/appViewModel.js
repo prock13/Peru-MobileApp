@@ -17,7 +17,7 @@ function AppViewModel() {
     self.listDetail = ko.observableArray();
 
 	self.getListItems = function() {
-		jQuery.ajax({
+	    jQuery.ajax({
 	        type: "GET",
 	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems",
 	        username: txtUserName,
@@ -38,6 +38,7 @@ function AppViewModel() {
 	                Lungo.Notification.error("Error","Error retrieving lists.  Please try again.", "cancel", 3);
 	        }            
 	    });
+		
 	};
 
 	// LIST DETAILS  ////////////////////////////////////
