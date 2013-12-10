@@ -19,15 +19,11 @@ function AppViewModel() {
     self.lists = ko.observableArray();
     self.chosenListId = ko.observableArray();
 
-	self.getListItems = function() {
-<<<<<<< HEAD
-	    jQuery.ajax({
-=======
+	self.getListItems = function() {		
 		self.lists([]);  //reset array
 		getCacheInfo();  //get cache variables
-		
+
 		jQuery.ajax({
->>>>>>> 85c3386a2e7a40ca04f58ae1a4e18465b84642bf
 	        type: "GET",
 	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems",
 	        username: txtUserName,
@@ -52,6 +48,7 @@ function AppViewModel() {
 	
 	self.getListDetails	= function(chosenList) {
 		self.listDetails([]);  //reset array	
+		
         myListDetails = $(listResults).find('list').filter(function(){
            return $(this).find("nid").text() == chosenList.nid;
         });
@@ -68,6 +65,7 @@ function AppViewModel() {
 		
 	self.getItemDetails = function(chosenItem) {
 		self.itemDetails([]);  //reset array
+		
 		myEventDetails = $(listResults).find('item').filter(function(){
            return $(this).find("itemid").text() == chosenItem.itemID;
         });
@@ -83,6 +81,8 @@ function AppViewModel() {
 	self.getBadgeItems = function() {
 		self.userBadgesList([]);  //reset array
 		self.allBadgesList([]);  //reset array
+		getCacheInfo();  //get cache variables
+		
 		jQuery.ajax({
 	        type: "GET",
 	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetBadgeItems",

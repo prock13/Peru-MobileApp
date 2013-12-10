@@ -1,13 +1,12 @@
 //--CUSTOM APP FUNCTIONS--
 var App = (function(lng, undefined) {
   
-    showListCount = function(event) {
-        event.stopPropagation();
-        Lungo.Element.count( "#list-nav", $$('#viewLists ul').children().length );
-    };
-
+  	setLanguageStrings = function() {
+	  	
+  	};
+  
     return {
-        showListCount: showListCount,
+        setLanguageStrings: setLanguageStrings,
     };
 
 })(Lungo);
@@ -41,8 +40,8 @@ Lungo.Events.init({
 	            type: 'GET', 
 	            url: 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/AuthenticateUser',
 				//HARDCODED USER/PASS DURING DEV 
-				data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
 	            //data: {name: 'test250', pass: 'testtest', portal: '6'},
+				data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
 	            dataType: 'json', 
 	            async: true,
 	            success: function(response) {
@@ -52,7 +51,6 @@ Lungo.Events.init({
 						var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
 						//var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
 						Lungo.Cache.set("lungoUserInfo", userInfoArray);					
-						//Lungo.Notification.success("Success","UID: "+response.uid, "check", 3, goHome);
 						Lungo.Notification.show();
 						goHome();
 					};				
