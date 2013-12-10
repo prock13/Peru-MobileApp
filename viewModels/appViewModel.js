@@ -1,16 +1,19 @@
 function AppViewModel() {
     var self = this;
-	var txtUserName = 'test250';
-    var txtPassword = 'testtest';
-    var txtPortalLang  = 'es-es';
+	var cachedUserInfo = '';
+	var txtUserName = '';
+    var txtPassword = '';
+    var txtPortalID = '';
+    var txtPortalLang  = '';
     var listResults = '';
 
-/*	var cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
-	var txtUserName = cachedUserInfo['userName'];
-	var txtPassword = cachedUserInfo['userPass'];
-	var txtPortalID = cachedUserInfo['portalID'];
-	var txtPortalLang = cachedUserInfo['portalLang'];
-*/
+	function getCacheInfo() {
+		cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
+		txtUserName = cachedUserInfo['userName'];
+		txtPassword = cachedUserInfo['userPass'];
+		txtPortalID = cachedUserInfo['portalID'];
+		txtPortalLang = cachedUserInfo['portalLang'];
+	};
 
 
 	// LISTS  ///////////////////////////////////
@@ -19,6 +22,8 @@ function AppViewModel() {
 
 	self.getListItems = function() {
 		self.lists([]);  //reset array
+		getCacheInfo();  //get cache variables
+		
 		jQuery.ajax({
 	        type: "GET",
 	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems",
@@ -40,6 +45,7 @@ function AppViewModel() {
 
 	// LIST DETAILS  ////////////////////////////////////
 	self.listDetails = ko.observableArray();
+	
 	self.getListDetails	= function(chosenList) {
 		self.listDetails([]);  //reset array	
         myListDetails = $(listResults).find('list').filter(function(){
@@ -54,7 +60,8 @@ function AppViewModel() {
 
 
 	// ITEM DETAILS //////////////////////////////////////
-	self.itemDetails = ko.observableArray();	
+	self.itemDetails = ko.observableArray();
+		
 	self.getItemDetails = function(chosenItem) {
 		self.itemDetails([]);  //reset array
 		myEventDetails = $(listResults).find('item').filter(function(){

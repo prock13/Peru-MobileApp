@@ -50,11 +50,11 @@ Lungo.Events.init({
 					   	Lungo.Notification.error("Error","Login Info Incorrect.  Please try again.", "cancel", 3);
 					} else {
 						var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
+						//var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
 						Lungo.Cache.set("lungoUserInfo", userInfoArray);					
-						//PMA: Show loading instead of success notification for live app: Lungo.Notification.show();
-						Lungo.Notification.success("Success","UID: "+response.uid, "check", 3, goHome);
-						//var cachedInfo = Lungo.Cache.get("lungoUserInfo");
-						//console.log('cache0: '+ cachedInfo['uid']);
+						//Lungo.Notification.success("Success","UID: "+response.uid, "check", 3, goHome);
+						Lungo.Notification.show();
+						goHome();
 					};				
 	            },
 	            error: function(xhr, type) { 
