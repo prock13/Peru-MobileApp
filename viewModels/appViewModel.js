@@ -15,7 +15,6 @@ function AppViewModel() {
 		txtPortalLang = cachedUserInfo['portalLang'];
 	};
 
-
 	// LISTS  ///////////////////////////////////
     self.lists = ko.observableArray();
     self.chosenListId = ko.observableArray();
