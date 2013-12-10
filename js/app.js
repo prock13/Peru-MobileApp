@@ -1,12 +1,31 @@
 //--CUSTOM APP FUNCTIONS--
 var App = (function(lng, undefined) {
+
+  	var cachedUserInfo;
+  	var txtPortalLang;
+  	var strUsernameReq;
   
   	setLanguageStrings = function() {
-	  	
+		cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
+		txtPortalLang = cachedUserInfo['portalLang'];
+
+		console.log(txtPortalLang);
+
+	  	switch (txtPortalLang) {
+		  	case 'es-es':
+		  		strUsernameReq = 'Se requiere nombre de usuario';
+		  		console.log(strUsernameReq);
+		  	break;
+		  	
+		  	case 'en-us':
+		  		strUsernameReq = 'Username is required';
+		  	break;
+	  	}
   	};
   
     return {
         setLanguageStrings: setLanguageStrings,
+        txtPortalLang: txtPortalLang
     };
 
 })(Lungo);
@@ -52,6 +71,7 @@ Lungo.Events.init({
 						//var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
 						Lungo.Cache.set("lungoUserInfo", userInfoArray);					
 						Lungo.Notification.show();
+						setLanguageStrings();
 						goHome();
 					};				
 	            },

@@ -20,6 +20,7 @@ function AppViewModel() {
     self.chosenListId = ko.observableArray();
 
 	self.getListItems = function() {		
+		Lungo.Notification.show(); // show loading while getting data	
 		self.lists([]);  //reset array
 		getCacheInfo();  //get cache variables
 
@@ -35,8 +36,10 @@ function AppViewModel() {
 	            $(xml).find('list').each(function(){
 					self.lists.push({nid: $(this).find("nid").text() , listname: $(this).find("listname").text()});					
 	            });
+	            Lungo.Notification.hide(); //hide loading
 	        },
 	        error: function(xhr, type) { 
+	                Lungo.Notification.hide(); //hide loading 
 	                Lungo.Notification.error("Error","Error retrieving lists.  Please try again.", "cancel", 3);
 	        }            
 	    });
@@ -47,6 +50,7 @@ function AppViewModel() {
 	self.listDetails = ko.observableArray();
 	
 	self.getListDetails	= function(chosenList) {
+		Lungo.Notification.show(); // show loading while getting data
 		self.listDetails([]);  //reset array	
 		
         myListDetails = $(listResults).find('list').filter(function(){
@@ -56,7 +60,8 @@ function AppViewModel() {
         myListDetails.find('item').each(function() {
 			self.listDetails.push({itemID: $(this).find("itemid").text() , titleItem: $(this).find("titleitem").text()});		
         });
-        			
+        
+        Lungo.Notification.hide(); //hide loading			
 	};
 
 
@@ -64,6 +69,7 @@ function AppViewModel() {
 	self.itemDetails = ko.observableArray();
 		
 	self.getItemDetails = function(chosenItem) {
+		Lungo.Notification.show(); // show loading while getting data
 		self.itemDetails([]);  //reset array
 		
 		myEventDetails = $(listResults).find('item').filter(function(){
@@ -71,6 +77,8 @@ function AppViewModel() {
         });
         
 		self.itemDetails.push({itemID2: myEventDetails.find("itemid").text(), titleItem2: myEventDetails.find("titleitem").text(), categoryitem: myEventDetails.find("categoryitem").text(), subcategoryitem: myEventDetails.find("subcategoryitem").text(), thumbnail: myEventDetails.find("thumbnail").text(), destinationid: myEventDetails.find("destinationid").text(), ejeid: myEventDetails.find("ejeid").text(), description: myEventDetails.find("description").text(), isbadgeearn: myEventDetails.find("isbadgeearn").text()});		
+		
+		 Lungo.Notification.hide(); //hide loading
 	};
 
 	// BADGES  ////////////////////////////////////
@@ -79,6 +87,7 @@ function AppViewModel() {
     self.allBadgesList = ko.observableArray();
 
 	self.getBadgeItems = function() {
+		Lungo.Notification.show(); // show loading while getting data
 		self.userBadgesList([]);  //reset array
 		self.allBadgesList([]);  //reset array
 		getCacheInfo();  //get cache variables
@@ -107,9 +116,12 @@ function AppViewModel() {
 	                	allBadgeURL = $(this).text();
 	                	self.allBadgesList.push(allBadgeURL);
 					});
-	            });	            
+	            });
+	            
+	            Lungo.Notification.hide(); //hide loading	            
 	        },
 	        error: function(xhr, type) { 
+	                Lungo.Notification.hide(); //hide loading
 	                Lungo.Notification.error("Error","Error retrieving badges.  Please try again.", "cancel", 3);
 	        }            
 	    });
