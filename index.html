@@ -75,23 +75,23 @@
   <section id="home" data-transition="slide">
     <header data-title="Promperu">  </header>
 
-    <article id="homeSlider" data-control="carousel">
-      <div class="artContainer">
-        <div align="center"> <img src="images/home/slider1.png" /> </div>
-        <div align="center"> <img src="images/home/slider2.png" /> </div>
-        <div align="center"> <img src="images/home/slider3.png" /> </div>
-        <div align="center"> <img src="images/home/slider4.png" /> </div>
-        <div align="center"> <img src="images/home/slider5.png" /> </div>
-      </div>
+	<article id="homeSlider" data-control="carousel">
+		<div class="artContainer">
+        	<div align="center"> <img src="images/home/slider1.png" /> </div>
+			<div align="center"> <img src="images/home/slider2.png" /> </div>
+			<div align="center"> <img src="images/home/slider3.png" /> </div>
+			<div align="center"> <img src="images/home/slider4.png" /> </div>
+			<div align="center"> <img src="images/home/slider5.png" /> </div>
+		</div>
     </article>
 
     <footer id="footer" class="footer">
-      <nav class="icons">                      
-       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
-       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
-       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
-       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
-      </nav>
+      	<nav class="icons">                      
+	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
+		 </nav>
     </footer>
   </section>
 
@@ -102,15 +102,15 @@
     </header>
 
     <article id="viewLists" class="list scroll">
-      <ul class="artContainer" data-bind='foreach: listDetail'>
-        <li class="arrow selectable" data-view-section="secListDetail"><span data-bind="text: listname">&nbsp;</span></li>
+      <ul class="artContainer" data-bind="foreach: lists">
+      	<li class="arrow selectable" data-view-section="secListDetail" data-bind="text: listname, click: $root.getListDetails"></li>
       </ul>
     </article>
 
     <footer class="footer">
         <nav class="icons">                      
-           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
-           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: $root.getListItems">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: $root.getBadgeItems">Insignias</a>
            <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
            <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
         </nav>
@@ -130,7 +130,9 @@
     </nav>
     <article id="listsDetail" class="list scroll">
 
-      <ul class="artContainer">
+      <ul class="artContainer"  data-bind="foreach: listDetails">
+		  <li class="arrow selectable" data-view-section="secListDetailItem" data-bind="text: titleItem, click: $root.getItemDetails"></li>
+<!--
         <li class="anchor contrast">Atractivos</li>
         <li class="arrow selectable" data-view-section="secListDetailItem"> Mi Atractivo 1 </li>
         <li class="arrow selectable"> Mi Atractivo 2 </li>
@@ -143,6 +145,7 @@
         <li class="anchor contrast">Eventos</li>
         <li class="arrow selectable"> Mi Evento 1 </li>
         <li class="arrow selectable"> Mi Evento 2 </li>
+-->        
       </ul>
 
     </article>
@@ -164,10 +167,10 @@
     </header>
 
     <article id="listsDetailItem" class="scroll">
-		<div class="artContainer">
-			<h2>Event 1</h2>
-			<img src="http://lorempixel.com/300/200/animals/" width="300" height="200" alt="">
-			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>		
+		<div class="artContainer" data-bind="foreach: itemDetails">
+			<h2 data-bind="text: titleItem2"></h2>
+			<img data-bind="attr: { src: $data.thumbnail, alt: $data.titleitem2}" width="300" height="200">
+			<p data-bind="text: description"></p>		
 		</div>  
     </article>
     
@@ -192,8 +195,8 @@
       <ul class="artContainer">
         <li class="anchor contrast">Mis Insignias</li>
         <li> 
-          <div class="listGrid" data-bind='foreach: userBadgesList'>
-            <img data-bind="attr: { src: $data }" width="80" height="80" alt="">
+          <div class="listGrid" data-bind="foreach: userBadgesList">
+            <img data-bind="attr: { src: $data }" width="80" height="80">
           </div>
         </li>
       </ul>
@@ -201,16 +204,8 @@
       <ul class="artContainer">
         <li class="anchor contrast">Todas las Insignias</li>
         <li> 
-          <div class="listGrid">
-            <img src="images/badges/locked/01_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/02_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/03_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/04_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/05_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/06_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/07_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/08_locked.png" width="80" height="80" alt="">
-            <img src="images/badges/locked/09_locked.png" width="80" height="80" alt="">
+          <div class="listGrid" data-bind="foreach: allBadgesList">
+            <img data-bind="attr: { src: $data }" width="80" height="80">
           </div>
         </li>
       </ul>
