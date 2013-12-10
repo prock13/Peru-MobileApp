@@ -1,9 +1,9 @@
 //--CUSTOM APP FUNCTIONS--
 var App = (function(lng, undefined) {
 
-  	var cachedUserInfo;
-  	var txtPortalLang;
-  	var strUsernameReq;
+  	var cachedUserInfo = '';
+  	var txtPortalLang = '';
+  	var strUsernameReq = '';
   
   	setLanguageStrings = function() {
 		cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
@@ -25,7 +25,8 @@ var App = (function(lng, undefined) {
   
     return {
         setLanguageStrings: setLanguageStrings,
-        txtPortalLang: txtPortalLang
+        txtPortalLang: txtPortalLang,
+        strUsernameReq: strUsernameReq
     };
 
 })(Lungo);
