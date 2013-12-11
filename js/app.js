@@ -13,7 +13,7 @@ var App = (function(lng, undefined) {
 		  	break;
 		  	
 		  	case 'en-us':
-		  		var langStringsArray = { name: 'en-us', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', btnOut: 'Cerrar Sesión', strUsernameReq: 'Se requiere nombre de usuario' };
+		  		var langStringsArray = { name: 'en-us', btnLists: 'Lists', btnBadges: 'Badges', btnMore: 'More', btnOut: 'Log Out', strUsernameReq: 'Username required' };
 		  	break;
 	  	}  	
 
@@ -103,6 +103,7 @@ Lungo.Events.init({
 		setInterval(function() {
 			App.carousel.next();
 		}, 4500);
+		
 		
 	},
    

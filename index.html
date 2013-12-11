@@ -87,7 +87,9 @@
 
     <footer id="footer" class="footer">
       	<nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems, setLanguage: getLangs()">
+	    
+	       </a>
 	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
 	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
 	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>

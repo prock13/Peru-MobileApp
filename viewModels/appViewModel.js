@@ -1,7 +1,7 @@
 function AppViewModel() {
     var self = this;
-	var cachedUserInfo = '';
-	var txtUserName = '';
+	  var cachedUserInfo = '';
+	  var txtUserName = '';
     var txtPassword = '';
     var txtPortalID = '';
     var txtPortalLang  = '';
@@ -13,23 +13,48 @@ function AppViewModel() {
 		txtPassword = cachedUserInfo['userPass'];
 		txtPortalID = cachedUserInfo['portalID'];
 		txtPortalLang = cachedUserInfo['portalLang'];
+		
 	};
 
 	// LANGUAGE SELECT //////////////////////////////////////	  
-	self.theLang = ko.observable( langStrings['es-es'] );
-	self.selectedLanguage = ko.observable();
+	self.languageStrings = ko.observableArray();
+	self.getLangs = function () {
+	  self.languageStrings = //Lungo.Cache.get("langStrings");
+	    { name: 'es-es', btnLists: 'La Listas', btnBadges: 'Insignias', btnMore: 'Más', btnOut: 'Cerrar Sesión', strUsernameReq: 'Se requiere nombre de usuario' }
+	  ;
+	  return self.languageStrings;
+	}
+	 
+	ko.bindingHandlers.setLanguage = {
+    init: function(element, valueAccessor) {
+      var langs = valueAccessor();
+      
+      $(element).text(langs['btnLists']);
+      
+      /*this.text = langs['name'];
+      this.btnLists = langs['btnLists'];
+      this.btnBadges = langs['btnBadges'];
+      this.btnMore = langs['btnMore'];
+      this.btnOut = langs['btnOut'];*/
+      
+      //alert("init " + langs['name'] );
+    },
+    update: function(element, valueAccessor) {
+      var langs = ko.unwrap(valueAccessor());
+      
+      if(langs['name']=='es-es') {
+        $(element).val("Listas Espaniol");
+      } else {
+        $(element).val("Lists");
+        
+      }
+      
+    }
+    
+  };
 	
-	self.getStrings = function(langs) {
-		return self.selectedLanguage(langs);
-	};
 	
-	var langs = function(langStrings) {
-	   this.name = langs.name;
-	   this.btnLists = langs.btnLists;
-	   this.btnBadges = langs.btnBadges;
-	   this.btnMore = langs.btnMore;
-	   this.btnOut = langs.btnOut;
-	};
+	
 
 	// LISTS  ///////////////////////////////////
     self.lists = ko.observableArray();
