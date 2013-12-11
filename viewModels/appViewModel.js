@@ -1,7 +1,7 @@
 function AppViewModel() {
     var self = this;
-	  var cachedUserInfo = '';
-	  var txtUserName = '';
+	var cachedUserInfo = '';
+	var txtUserName = '';
     var txtPassword = '';
     var txtPortalID = '';
     var txtPortalLang  = '';
@@ -26,32 +26,30 @@ function AppViewModel() {
 	}
 	 
 	ko.bindingHandlers.setLanguage = {
-    init: function(element, valueAccessor) {
-      var langs = valueAccessor();
-      
-      $(element).text(langs['btnLists']);
-      
-      /*this.text = langs['name'];
-      this.btnLists = langs['btnLists'];
-      this.btnBadges = langs['btnBadges'];
-      this.btnMore = langs['btnMore'];
-      this.btnOut = langs['btnOut'];*/
-      
-      //alert("init " + langs['name'] );
-    },
-    update: function(element, valueAccessor) {
-      var langs = ko.unwrap(valueAccessor());
-      
-      if(langs['name']=='es-es') {
-        $(element).val("Listas Espaniol");
-      } else {
-        $(element).val("Lists");
-        
-      }
-      
-    }
+	    init: function(element, valueAccessor) {
+			var langs = valueAccessor();
+			
+			$(element).text(langs['btnLists']);
+			
+			/*this.text = langs['name'];
+			this.btnLists = langs['btnLists'];
+			this.btnBadges = langs['btnBadges'];
+			this.btnMore = langs['btnMore'];
+			this.btnOut = langs['btnOut'];*/
+			
+			//alert("init " + langs['name'] );
+		},
+	    update: function(element, valueAccessor) {
+			var langs = ko.unwrap(valueAccessor());
+			
+			if(langs['name']=='es-es') {
+				$(element).val("Listas Espaniol");
+			} else {
+				$(element).val("Lists");			
+			}      
+		}
     
-  };
+	};
 	
 	
 	
