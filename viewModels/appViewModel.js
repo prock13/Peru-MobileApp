@@ -18,24 +18,25 @@ function AppViewModel() {
 
 	// LANGUAGE SELECT //////////////////////////////////////	  
 	self.languageStrings = ko.observableArray();
-	self.getLangs = function () {
-	  self.languageStrings = //Lungo.Cache.get("langStrings");
-	    { name: 'es-es', btnLists: 'La Listas', btnBadges: 'Insignias', btnMore: 'Más', btnOut: 'Cerrar Sesión', strUsernameReq: 'Se requiere nombre de usuario' }
-	  ;
-	  return self.languageStrings;
-	}
 	 
-	ko.bindingHandlers.setLanguage = {
-    init: function(element, valueAccessor) {
+	self.setLanguage = function(ary) {
+	  var langStrings = ary;
+	  alert("inside func");
+	  alert(langStrings['name']);
+	  
+   /* do stuff with strings 
+   init: function(element) {
+      //self.languageStrings = ko.observableArray();
+      
       var langs = valueAccessor();
       
       $(element).text(langs['btnLists']);
       
-      /*this.text = langs['name'];
-      this.btnLists = langs['btnLists'];
-      this.btnBadges = langs['btnBadges'];
-      this.btnMore = langs['btnMore'];
-      this.btnOut = langs['btnOut'];*/
+      //this.text = langs['name'];
+      //this.btnLists = langs['btnLists'];
+      //this.btnBadges = langs['btnBadges'];
+      //this.btnMore = langs['btnMore'];
+      //this.btnOut = langs['btnOut'];
       
       //alert("init " + langs['name'] );
     },
@@ -47,10 +48,8 @@ function AppViewModel() {
       } else {
         $(element).val("Lists");
         
-      }
-      
-    }
-    
+      }*/
+  
   };
 	
 	

@@ -83,6 +83,7 @@ Lungo.Events.init({
 						Lungo.Cache.set("lungoUserInfo", userInfoArray);  //set global Cache			
 						Lungo.Notification.show();    //show loading animation
 						App.setLanguageStrings();     //setup language strings
+						ko.languageStrings = Lungo.Cache.get("langStrings");
 						Lungo.Router.section('home'); // go to the Home section
 						Lungo.Notification.hide();    //hide loading animation
 					};				
@@ -104,40 +105,26 @@ Lungo.Events.init({
 			App.carousel.next();
 		}, 4500);
 		
-		
+		var theStrings = ko.languageStrings;
+		alert( theStrings['name'] ); //---- PABLO LOOK HERE!!!! ---
+	  ko.setLanguage( theStrings );
 	},
    
-    'load article#listDetal' : function(){
-       //fb share list
-        var portalURL = "";
-        var communityURL = "community/my-passport"; // - comunidad/Mi-Pasaporte
-        var listID = "79";
-        var userID = "488";
+  'touch section#secListDetail a#share' : function(){
+    //fb share list
+    // var portalURL = "";
+    // var communityURL = "community/my-passport"; // - comunidad/Mi-Pasaporte
+    // var listID = "79";
+    // var userID = "488";
 
-       /* Lungo.dom('#shareFB').tap(function(){
-          FB.ui(
-            {
-              method: 'feed',
-              name: 'Peru Travel App',
-              link: 'https://developers.facebook.com/docs/dialogs/', //pass url
-              picture: '/images/logo-peru@2x.png',
-              caption: 'Peru Travel App - My List', //lang specific
-              description: 'Find the most complete guide for vacations in Peru, with the main destinations, attractions, activities, offers, and more.' //lang specific
-            },
-            function(response) {
-              if (response && response.post_id) {
-                alert('Post was published.');
-              } else {
-                alert('Post was not published.');
-              }
-            }
-          );
-
-        });//end share tab fb
-      */
-      
-    },
-
+    if( $$(this).hasClass('clicked') ) {
+       $$('nav#socials').removeClass('show');
+       $$(this).removeClass('clicked');
+    } else {
+      $$(this).addClass('clicked');
+    }
+    
+  },
 
 });
 
