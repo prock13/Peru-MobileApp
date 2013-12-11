@@ -19,7 +19,6 @@ function AppViewModel() {
 	// LANGUAGE SELECT //////////////////////////////////////	  
 	self.languageStrings = ko.observableArray();
 	 
-<<<<<<< HEAD
 	self.setLanguage = function(ary) {
 	  var langStrings = ary;
 	  alert("inside func");
@@ -52,36 +51,7 @@ function AppViewModel() {
       }*/
   
   };
-=======
-	ko.bindingHandlers.setLanguage = {
-	    init: function(element, valueAccessor) {
-			var langs = valueAccessor();
-			
-			$(element).text(langs['btnLists']);
-			
-			/*this.text = langs['name'];
-			this.btnLists = langs['btnLists'];
-			this.btnBadges = langs['btnBadges'];
-			this.btnMore = langs['btnMore'];
-			this.btnOut = langs['btnOut'];*/
-			
-			//alert("init " + langs['name'] );
-		},
-	    update: function(element, valueAccessor) {
-			var langs = ko.unwrap(valueAccessor());
-			
-			if(langs['name']=='es-es') {
-				$(element).val("Listas Espaniol");
-			} else {
-				$(element).val("Lists");			
-			}      
-		}
-    
-	};
->>>>>>> 9a469cc34a5a436be9d5491e5b00b014b0912b3f
-	
-	
-	
+
 
 	// LISTS  ///////////////////////////////////
     self.lists = ko.observableArray();
