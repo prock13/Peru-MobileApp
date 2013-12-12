@@ -95,20 +95,25 @@ Lungo.Events.init({
 	},
    
   'touch section#secListDetail a#share' : function(){
-    //fb share list
-    // var portalURL = "";
-    // var communityURL = "community/my-passport"; // - comunidad/Mi-Pasaporte
-    // var listID = "79";
-    // var userID = "488";
-
-    if( $$(this).hasClass('clicked') ) {
+    if($$(this).hasClass('clicked') ) {
        $$('nav#socials').removeClass('show');
        $$(this).removeClass('clicked');
     } else {
       $$(this).addClass('clicked');
     }
-    
   },
+  
+  'touch socials a' : function() {
+    // - http://m8staging.com/es-es/comunidad/Mi-Pasaporte/ItineraryId/99/userId/305.aspx
+    // var portalURL = "";
+    // var communityURL = "community/my-passport"; // - comunidad/Mi-Pasaporte
+    // var listID = "79";
+    // var userID = "488";
+    // - Check out my itinerary for my Peru trip
+
+    $$(this).attr('onclick', "window.plugins.socialsharing.share('Mira mi itinerario para mi viaje a Perú ', null, null, 'http://m8staging.com/es-es/comunidad/Mi-Pasaporte/ItineraryId/99/userId/305.aspx')");
+    
+  }
 
 });
 
