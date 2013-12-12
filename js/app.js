@@ -98,7 +98,7 @@ Lungo.Events.init({
 		
 		//Lungo.dom('#list-nav').html('Listas');  //NATY: This is the fallback plan! 
 	},
-   
+	
   'touch section#secListDetail a#share' : function(){
     if($$(this).hasClass('clicked') ) {
        $$('nav#socials').removeClass('show');
@@ -110,13 +110,32 @@ Lungo.Events.init({
   
   'touch #socials a' : function() {
     // - http://m8staging.com/es-es/comunidad/Mi-Pasaporte/ItineraryId/99/userId/305.aspx
-    // var portalURL = "";
-    // var communityURL = "community/my-passport"; // - comunidad/Mi-Pasaporte
-    // var listID = "79";
-    // var userID = "488";
-    // - Check out my itinerary for my Peru trip
+    var cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
+    var portalURL = cachedUserInfo['portalLang'];
+      if(portalURL=="en-int") portalURL = "";
+    var communityURL;
+    var shareMsg;
+    switch (portalURL) {
+	  	case 'es-es':
+	  	case 'es-pe':
+	  	case 'es-lat':
+	    communityURL = "comunidad/Mi-Pasaporte";
+	    shareMsg = "Mira mi itinerario para mi viaje a Perú.";
+	  	break;
+	  	
+	  	case 'en-us':
+	  	case 'en-int':
+	  	case 'en-ca':
+	  	case 'en-uk':
+	  	communityURL = "community/my-passport";
+	  	shareMsg = "Check out my itinerary for my Peru trip.";
+	  	break;  	
+  	}
+   
+    var listID = "79"; //--get from view
+    var userID = cachedUserInfo['uid'];
     
-    window.plugins.socialsharing.share('Mira mi itinerario para mi viaje a Perú', null, null, 'http://m8staging.com/es-es/comunidad/Mi-Pasaporte/ItineraryId/99/userId/305.aspx');
+    window.plugins.socialsharing.share(shareMsg, null, null, 'http://m8staging.com/'+ portalURL + '/' + communityURL + '/ItineraryId/'+ listID + '/userId/' + userID +'.aspx');
     
   }
 

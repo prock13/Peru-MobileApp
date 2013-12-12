@@ -8,8 +8,8 @@ filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#d25349',endCo
 body > section > footer { background:#e8e8e8; /* Old browsers */
 background:-moz-linear-gradient(top,#e8e8e8 0%,#cfcece 100%); /* FF3.6+ */background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#e8e8e8),color-stop(100%,#cfcece)); /* Chrome,Safari4+ */background:-webkit-linear-gradient(top,#e8e8e8 0%,#cfcece 100%); /* Chrome10+,Safari5.1+ *background:-o-linear-gradient(top,#e8e8e8 0%,#cfcece 100%); /* Opera 11.10+ */background:-ms-linear-gradient(top,#e8e8e8 0%,#cfcece 100%); /* IE10+ */background:linear-gradient(to bottom,#e8e8e8 0%,#cfcece 100%); /* W3C */filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8',endColorstr='#cfcece',GradientType=0 ); /* IE6-9 */color:#777; height:70px; }
 section > footer > nav > a.active,section > footer > nav > a:active { color:black; box-shadow:none; }
-section > footer > nav > a.active .icon { color:#d52b1e; }
-section > footer > nav > a { color:#777; width:25%; }
+section > footer > nav > a.active { color:#d52b1e; }
+section > footer > nav > a { color:#777; width:25%; height:100%; }
 section > footer > nav { text-align:center; }
 footer nav .icon { display:block; line-height:10px; margin:0px auto; padding-top:20px}
 .tag:not(.icon).count { background-color:#d52b1e; float:right; margin-right:-9px; margin-top:-10px; }
