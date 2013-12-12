@@ -55,6 +55,7 @@ form input[type="text"]:focus,.form input[type="text"]:focus,form input[type="pa
 /************social network***********/
 section header > nav.on-right a,section header > nav.on-right button{text-shadow:none;}
 nav[data-control=menu]:not(.icons) > a:hover > .icon{color:#f1f1f1;}
+[data-view-menu]:after { content:""; }
 /*---home---*/
 #homeSlider .artContainer{margin-top:0;margin-bottom:0;}
 /*---fonts---*/
