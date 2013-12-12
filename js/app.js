@@ -9,7 +9,7 @@ var App = (function(lng, undefined) {
 		
 	  	switch (txtPortalLang) {
 		  	case 'es-es':
-		  		var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', btnOut: 'Cerrar Sesión', strUsernameReq: 'Se requiere nombre de usuario' };
+		  		var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'M&aacute;s', btnOut: 'Cerrar Sesi&oacute;n', strUsernameReq: 'Se requiere nombre de usuario' };
 		  	break;
 		  	
 		  	case 'en-us':
