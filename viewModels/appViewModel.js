@@ -19,12 +19,9 @@ function AppViewModel() {
 	
 	// LANGUAGE SELECT //////////////////////////////////////	  
 	self.languageStrings = ko.observableArray();
-	self.btnLists = ko.observable();
 	 
 	self.setLanguage = function() {
-	  	self.languageStrings = Lungo.Cache.get("langStrings");
-	  	//alert(self.languageStrings['name']);
-	  	self.btnLists = self.languageStrings['btnLists'];
+	  	self.languageStrings(Lungo.Cache.get("langStrings"));
 	};
 	  
   	// LISTS  ///////////////////////////////////
