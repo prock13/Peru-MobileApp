@@ -67,7 +67,7 @@ function AppViewModel() {
         });
         
         myListDetails.find('item').each(function() {
-			self.listDetails.push({itemID: $(this).find("itemid").text() , titleItem: $(this).find("titleitem").text()});		
+			    self.listDetails.push({itemID: $(this).find("itemid").text() , titleItem: $(this).find("titleitem").text()});		
         });
         
         Lungo.Notification.hide(); //hide loading			

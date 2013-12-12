@@ -9,11 +9,16 @@ var App = (function(lng, undefined) {
 		
 	  	switch (txtPortalLang) {
 		  	case 'es-es':
-		  		var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'M&aacute;s', btnOut: 'Cerrar Sesi&oacute;n', strUsernameReq: 'Se requiere nombre de usuario' };
+		  	case 'es-pe':
+		  	case 'es-lat':
+		  	var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'M&aacute;s', btnOut: 'Cerrar Sesi&oacute;n', titleLists: 'Mis Listas de Viaje', titleBadges: 'Mis Insignias', titleBadgesAll: 'Todas las Insignias', titleMore: 'M&aacute;s', titleAbout: 'Acerca de Per&uacute;', titleTerms: 'T&eacute;rminos y Condiciones', fileAbout: 'views/about.html', fileTerms: 'views/tnc.html' };
 		  	break;
 		  	
 		  	case 'en-us':
-		  		var langStringsArray = { name: 'en-us', btnLists: 'Lists', btnBadges: 'Badges', btnMore: 'More', btnOut: 'Log Out', strUsernameReq: 'Username required' };
+		  	case 'en-int':
+		  	case 'en-ca':
+		  	case 'en-uk':
+		  		var langStringsArray = { name: 'en-us', btnLists: 'Lists', btnBadges: 'Badges', btnMore: 'More', btnOut: 'Log Out', titleLists: 'My Itinerary Lists', titleBadges: 'My Badges', titleBadgesAll: 'All Badges', titleMore: 'More', btnAbout: 'About Peru', titleTerms: 'Terms and Conditions', fileAbout: 'views/aboutEn.html', fileTerms: 'views/tncEN.html'  };
 		  	break;		  	
 	  	}  	
 

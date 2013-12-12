@@ -98,8 +98,9 @@
 
   <!--viewlists-->
   <section id="secLists" data-transition="slide">
-    <header data-title="Mis Listas de Viaje"> 
+    <header> 
     	<nav><a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+    	  <h1 class="title centered" data-bind="html: $root.languageStrings()['titleLists']"></h1>
     </header>
 
     <article id="viewLists" class="list scroll">
@@ -189,14 +190,15 @@
 
   <!--viewBadges-->
   <section id="secBadges" data-transition="slide">
-    <header data-title="Mis Insignias"> 
+    <header> 
       <nav> <a id="" href="#" data-view-section="home" data-icon="home" class="on-left"></a></nav>
+      <h1 class="title centered" data-bind="html: $root.languageStrings()['titleBadges']"></h1>
     </header>
 
     <article id="viewBadges" class="list scroll">
 
       <ul class="artContainer">
-        <li class="anchor contrast">Mis Insignias</li>
+        <li class="anchor contrast" data-bind="html: $root.languageStrings()['titleBadges']"></li>
         <li> 
           <div class="listGrid" data-bind="foreach: userBadgesList">
             <img data-bind="attr: { src: $data }" width="80" height="80">
@@ -205,7 +207,7 @@
       </ul>
 
       <ul class="artContainer">
-        <li class="anchor contrast">Todas las Insignias</li>
+        <li class="anchor contrast"> <span data-bind="html: $root.languageStrings()['titleBadgesAll']"></span> </li>
         <li> 
           <div class="listGrid" data-bind="foreach: allBadgesList">
             <img data-bind="attr: { src: $data }" width="80" height="80">
@@ -227,16 +229,17 @@
   
   <!--more-->
   <section id="secMore"  data-transition="slide">
-     <header data-title="Más"> 
+     <header> 
         <nav> <a id="" href="#" data-view-section="home" data-icon="home" data-article="more" class="on-left"></a></nav>
         <nav> <a id="" href="#" data-view-article="more" data-icon="arrow-left" data-article="about" class="on-left"></a></nav>
         <nav> <a id="" href="#" data-view-article="more" data-icon="arrow-left" data-article="tnc" class="on-left"></a></nav>
+        <h1 class="title centered" data-bind="html: $root.languageStrings()['titleMore']"></h1>
       </header>
   
     <article id="more" class="list scroll">
       <ul class="artContainer">
-        <li class="arrow" data-view-article="about" data-async="views/about.html">Acerca de Perú</li>
-        <li class="arrow" data-view-article="tnc" data-async="views/tnc.html">Términos y Condiciones</li>
+        <li class="arrow" data-view-article="about" data-bind="attr: { 'data-async' : $root.languageStrings()['fileAbout'] }"> <span data-bind="html: $root.languageStrings()['titleAbout']"></span> </li>
+        <li class="arrow" data-view-article="tnc" data-bind="attr: { 'data-async' : $root.languageStrings()['fileTerms'] }"> <span data-bind="html: $root.languageStrings()['titleTerms']"></span> </li>
      </ul>                                      
     </article>
     
