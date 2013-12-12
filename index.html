@@ -50,7 +50,7 @@
           <fieldset class="radius-bottom shadow">
             <label class="select"> 
               <span class="flag" id="flagpic"></span>
-              <select onblur="changeflag()" class="flags" id="login-portal">
+              <select onchange="changeflag()" class="flags" id="login-portal">
                 <option class="first" name="" value="">Selecciona el Portal de Registro</option>
                 <option name="en-int" value="53">International</option>
                 <option name="es-pe" value="1">Perú</option>
@@ -77,21 +77,20 @@
 
 	<article id="homeSlider" data-control="carousel">
 		<div class="artContainer">
-			<div align="center"> <img src="images/home/slider1.png" /> </div>
+      <div align="center"> <img src="images/home/slider1.png" /> </div>
 			<div align="center"> <img src="images/home/slider2.png" /> </div>
 			<div align="center"> <img src="images/home/slider3.png" /> </div>
 			<div align="center"> <img src="images/home/slider4.png" /> </div>
 			<div align="center"> <img src="images/home/slider5.png" /> </div>
 		</div>
-		<button id="btnLang" style="display: none;" data-bind="click: setLanguage"></button>
     </article>
 
     <footer id="footer" class="footer">
       	<nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"><span data-bind="html: $root.languageStrings()['btnLists']"></span></a>
-	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems"><span data-bind="html: $root.languageStrings()['btnBadges']"></span></a>
-	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"><span data-bind="html: $root.languageStrings()['btnMore']"></span></a>
-	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"><span data-bind="html: $root.languageStrings()['btnOut']"></span></a>
+	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"> Listas </a>
+	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
 		 </nav>
     </footer>
   </section>
@@ -110,10 +109,10 @@
 
     <footer class="footer">
         <nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"><span data-bind="html: $root.languageStrings()['btnLists']"></span></a>
-	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems"><span data-bind="html: $root.languageStrings()['btnBadges']"></span></a>
-	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"><span data-bind="html: $root.languageStrings()['btnMore']"></span></a>
-	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"><span data-bind="html: $root.languageStrings()['btnOut']"></span></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: $root.getListItems">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: $root.getBadgeItems">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
         </nav>
       </footer>
   </section>
@@ -155,10 +154,10 @@
     
     <footer class="footer">
         <nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"><span data-bind="html: $root.languageStrings()['btnLists']"></span></a>
-	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems"><span data-bind="html: $root.languageStrings()['btnBadges']"></span></a>
-	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"><span data-bind="html: $root.languageStrings()['btnMore']"></span></a>
-	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"><span data-bind="html: $root.languageStrings()['btnOut']"></span></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
         </nav>
       </footer>
   </section>
@@ -179,10 +178,10 @@
     
     <footer class="footer">
         <nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"><span data-bind="html: $root.languageStrings()['btnLists']"></span></a>
-	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems"><span data-bind="html: $root.languageStrings()['btnBadges']"></span></a>
-	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"><span data-bind="html: $root.languageStrings()['btnMore']"></span></a>
-	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"><span data-bind="html: $root.languageStrings()['btnOut']"></span></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
         </nav>
       </footer>
   </section>
@@ -217,10 +216,10 @@
     
     <footer class="footer">
         <nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"><span data-bind="html: $root.languageStrings()['btnLists']"></span></a>
-	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems"><span data-bind="html: $root.languageStrings()['btnBadges']"></span></a>
-	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"><span data-bind="html: $root.languageStrings()['btnMore']"></span></a>
-	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"><span data-bind="html: $root.languageStrings()['btnOut']"></span></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
         </nav>
       </footer>
   </section>
@@ -242,10 +241,10 @@
     
     <footer class="footer">
         <nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"><span data-bind="html: $root.languageStrings()['btnLists']"></span></a>
-	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems"><span data-bind="html: $root.languageStrings()['btnBadges']"></span></a>
-	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore"><span data-bind="html: $root.languageStrings()['btnMore']"></span></a>
-	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main"><span data-bind="html: $root.languageStrings()['btnOut']"></span></a>
+           <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems">Listas</a>
+           <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
+           <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
+           <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>
         </nav>
       </footer>
   </section>
@@ -255,8 +254,8 @@
   <script src="components/quojs/quo.js"></script>
   <script src="components/lungojs/lungo.js"></script>
   <script src="components/knockout/knockout-3.0.0.js"></script>
-  <script src="phonegap.js"></script>
-  <script src="components/pgplugins/SocialSharing.js"></script>
+  <!--script src="phonegap.js"></script>
+  <script src="components/pgplugins/SocialSharing.js"></script-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
   <script src="viewModels/appViewModel.js"></script>
   <script type="text/javascript" charset="utf-8">
