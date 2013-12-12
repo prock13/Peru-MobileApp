@@ -6,6 +6,7 @@ function AppViewModel() {
     var txtPortalID = '';
     var txtPortalLang  = '';
     var listResults = '';
+    var theLangStrings = '';
 
 	function getCacheInfo() {
 		cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
@@ -15,45 +16,18 @@ function AppViewModel() {
 		txtPortalLang = cachedUserInfo['portalLang'];
 		
 	};
-
+	
 	// LANGUAGE SELECT //////////////////////////////////////	  
 	self.languageStrings = ko.observableArray();
+	self.btnLists = ko.observable();
 	 
-	self.setLanguage = function(ary) {
-	  var langStrings = ary;
-	  alert("inside func");
-	  alert(langStrings['name']);
+	self.setLanguage = function() {
+	  	self.languageStrings = Lungo.Cache.get("langStrings");
+	  	//alert(self.languageStrings['name']);
+	  	self.btnLists = self.languageStrings['btnLists'];
+	};
 	  
-   /* do stuff with strings 
-   init: function(element) {
-      //self.languageStrings = ko.observableArray();
-      
-      var langs = valueAccessor();
-      
-      $(element).text(langs['btnLists']);
-      
-      //this.text = langs['name'];
-      //this.btnLists = langs['btnLists'];
-      //this.btnBadges = langs['btnBadges'];
-      //this.btnMore = langs['btnMore'];
-      //this.btnOut = langs['btnOut'];
-      
-      //alert("init " + langs['name'] );
-    },
-    update: function(element, valueAccessor) {
-      var langs = ko.unwrap(valueAccessor());
-      
-      if(langs['name']=='es-es') {
-        $(element).val("Listas Espaniol");
-      } else {
-        $(element).val("Lists");
-        
-      }*/
-  
-  };
-
-
-	// LISTS  ///////////////////////////////////
+  	// LISTS  ///////////////////////////////////
     self.lists = ko.observableArray();
     self.chosenListId = ko.observableArray();
 

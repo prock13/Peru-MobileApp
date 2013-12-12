@@ -77,17 +77,18 @@
 
 	<article id="homeSlider" data-control="carousel">
 		<div class="artContainer">
-      <div align="center"> <img src="images/home/slider1.png" /> </div>
+			<div align="center"> <img src="images/home/slider1.png" /> </div>
 			<div align="center"> <img src="images/home/slider2.png" /> </div>
 			<div align="center"> <img src="images/home/slider3.png" /> </div>
 			<div align="center"> <img src="images/home/slider4.png" /> </div>
 			<div align="center"> <img src="images/home/slider5.png" /> </div>
 		</div>
+		<button id="btnLang" style="display: none;" data-bind="click: setLanguage"></button>
     </article>
 
     <footer id="footer" class="footer">
       	<nav class="icons">                      
-	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="click: getListItems"> Listas </a>
+	       <a id="list-nav" class="navButton" data-icon="list-ul" data-view-section="secLists" data-bind="text: $root.btnLists, click: $root.getListItems"></a>
 	       <a id="badge-nav" class="navButton" data-icon="trophy" data-view-section="secBadges" data-bind="click: getBadgeItems">Insignias</a>
 	       <a id="more-nav" class="navButton" data-icon="info-sign" data-view-section="secMore">Más</a>
 	       <a id="btnLogout" class="navButton" data-icon="signout" data-view-section="main">Cerrar Sesión</a>

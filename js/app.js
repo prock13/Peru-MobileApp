@@ -14,28 +14,15 @@ var App = (function(lng, undefined) {
 		  	
 		  	case 'en-us':
 		  		var langStringsArray = { name: 'en-us', btnLists: 'Lists', btnBadges: 'Badges', btnMore: 'More', btnOut: 'Log Out', strUsernameReq: 'Username required' };
-		  	break;
+		  	break;		  	
 	  	}  	
 
 		Lungo.Cache.set("langStrings", langStringsArray);
+		$( "#btnLang" ).trigger( "click" );  //It's ugly...but it WORKS!!  :)
 	};
 
-	var getLanguageStrings = function() {
-	  	var esLangStrings = { btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'Más', strUsernameReq: 'Se requiere nombre de usuario' };
-	  	switch (txtPortalLang) {
-		  	case 'es-es':
-		  		//esLangStrings.push();
-		  	break;
-		  	
-		  	case 'en-us':
-		  	break;
-	  	}  	
-	  	return esLangStrings;
-  	};    
- 
     return {
-        setLanguageStrings: setLanguageStrings,
-        getLanguageStrings: getLanguageStrings       
+        setLanguageStrings: setLanguageStrings    
     };
 
 })(Lungo);
@@ -69,21 +56,20 @@ Lungo.Events.init({
 	            type: 'GET', 
 	            url: 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/AuthenticateUser',
 				//HARDCODED USER/PASS DURING DEV 
-	            //data: {name: 'test250', pass: 'testtest', portal: '6'},
-				data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
+	            data: {name: 'test250', pass: 'testtest', portal: '6'},
+				//data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
 	            dataType: 'json', 
 	            async: true,
 	            success: function(response) {
 	            	if (response.message) {
 					   	Lungo.Notification.error("Error",response.message, "cancel", 3);
 					} else {
-						var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
+						//var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
 						//HARDCODED INFO DURING DEV 
-						//var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
+						var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
 						Lungo.Cache.set("lungoUserInfo", userInfoArray);  //set global Cache			
 						Lungo.Notification.show();    //show loading animation
 						App.setLanguageStrings();     //setup language strings
-						ko.languageStrings = Lungo.Cache.get("langStrings");
 						Lungo.Router.section('home'); // go to the Home section
 						Lungo.Notification.hide();    //hide loading animation
 					};				
@@ -105,9 +91,7 @@ Lungo.Events.init({
 			App.carousel.next();
 		}, 4500);
 		
-		var theStrings = ko.languageStrings;
-		alert( theStrings['name'] ); //---- PABLO LOOK HERE!!!! ---
-	  ko.setLanguage( theStrings );
+		//Lungo.dom('#list-nav').html('Listas');  //NATY: This is the fallback plan! 
 	},
    
   'touch section#secListDetail a#share' : function(){
