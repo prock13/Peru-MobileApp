@@ -29,9 +29,10 @@ body > section > article p a { color:#666; font-weight:bold; text-decoration:und
 .artContainer p { text-align:justify; font-size:14px; }
 .artContainer p.indented { padding:10px; }
   .artContainer p strong { color:#333; font-weight: bold; }
+.artContainer img { display: block; width: 320px; height:auto; margin:10px auto; }
 .artContainer .block { margin:1% auto; }
-.artContainer h2.title { font-family:'BreePeruWeb-Light'; }
 .artContainer h2 { padding:10px 0px; color:#C1170A; font-size:17px; }
+  .artContainer h2.title { font-family:'BreePeruWeb-Light'; }
   #about .artContainer h2, #about .artContainer h4, #about .artContainer p, #tnc .artContainer h2, #tnc .artContainer h4, #tnc .artContainer p, #tnc .artContainer ul { padding-left:10px; padding-right:10px; }
 .artContainer h4 { padding:5px 0px; font-size:15px; }
   #tnc .artContainer ul.indented { padding-left:35px; text-align: justify; }

@@ -137,6 +137,10 @@ Lungo.Events.init({
     
     window.plugins.socialsharing.share(shareMsg, null, null, 'http://m8staging.com/'+ portalURL + '/' + communityURL + '/ItineraryId/'+ listID + '/userId/' + userID +'.aspx');
     
+    //--close social modal
+    $$('nav#socials').removeClass('show');
+    $$('a#share').removeClass('clicked');
+    
   }
 
 });
