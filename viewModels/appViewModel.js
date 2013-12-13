@@ -139,3 +139,13 @@ function AppViewModel() {
 };
 
 ko.applyBindings(new AppViewModel());
+
+ ko.bindingHandlers.tap = {
+    init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        var callback = allBindingsAccessor().tap;
+        $$(element).tap(function() {
+            callback(viewModel);
+        });
+    }
+    , update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {}
+}
