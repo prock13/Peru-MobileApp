@@ -75,8 +75,8 @@
       <div  id="forgotModal" class="form">
         <div id="exit_forgot" data-icon="remove-sign" ></div>
       
-        <fieldset class="radius-top" data-icon="envelope">
-          <input type="email" placeholder="Correo Electronico" id="pass-email" value="">
+        <fieldset class="radius-top" data-icon="user">
+          <input type="text" placeholder="Nombre de Usuario" id="pass-user" value="">
         </fieldset>
         <fieldset class="radius-bottom shadow">
           <label class="select"> 
@@ -318,19 +318,20 @@
   }
   
   $(document).ready(function() {
-    $('.blackOpacity').css('top','200%');
+    $('.blackOpacity').hide();
     
     $('#forgot').click(function(e){
       e.preventDefault();
-      $('.blackOpacity').animate({
-        top : 0
-        
-      }, 1000);
+      $('.blackOpacity').fadeIn();
+      $('#forgotModal').animate({
+        top : '47%' }, 800);
     });
     
     $('#exit_forgot').click(function(e){
       e.preventDefault();
-      $('.blackOpacity').slideDown();
+      $('#forgotModal').animate({
+        top : '100%' }, 800);
+      $('.blackOpacity').delay(1000).fadeOut();
     });
     
    
