@@ -48,18 +48,23 @@ Lungo.Events.init({
       Lungo.Notification.error("Error","Please select a portal", "cancel", 3);
     } else { 
       //http://m8staging.com/desktopmodules/AuthServices/API/UserAutentication.ashx/ForgotPassword?portalId=6&userName=natycaamal
+     
       $$.ajax({
         type: 'GET', 
-        url: 'http://m8staging.com/desktopmodules/AuthServices/API/UserAutentication.ashx/ForgotPassword?portalId='+passPortalID+'&userName='+passUserName,
+        url: 'http://m8staging.com/desktopmodules/AuthServices/API/UserAutentication.ashx/ForgotPassword?portalId='+passPortalID+'&userName='+passUserName, 
         //HARDCODED USER/PASS DURING DEV 
-        data: {name: passUserName, portal: passPortalID},
-        dataType: 'json', 
+        //data: { portalId: passPortalID, userName: passUserName },
+        dataType: 'text',
         async: true,
         success: function(response) {
-          Lungo.Notification.success("Success","Password was sent to your email.","check", 3);    //show loading animation				
+          if(response=="False") {
+            Lungo.Notification.error("Error","User does not exists in this portal. Please try again.", "check", 3);
+          } else { 
+            Lungo.Notification.success("Success","Password was sent to your email.", "check", 3);
+          }
         },
-        error: function(xhr, type) {
-          Lungo.Notification.error("Error","Password not sent. Please try again.", "cancel", 3);
+        error: function(xhr, type) { 
+          Lungo.Notification.error("Error","Password reset error. Please try again.", "cancel", 3);
         }
       });
     }
