@@ -63,11 +63,40 @@
             </label>
           </fieldset>
           <br />
-          <label> <a href="">Olvide mi usuario o contraseña</a> </label>
+          <label> <a id="forgot">Olvide mi usuario o contraseña</a> </label>
           <br />
           <button id="btnLogin" class="anchor" data-icon="signin" data-label="Inicio"></button>
         </div>
+        
       </div>
+      
+      <div class="blackOpacity">
+       
+      <div  id="forgotModal" class="form">
+        <div id="exit_forgot" data-icon="remove-sign" ></div>
+      
+        <fieldset class="radius-top" data-icon="envelope">
+          <input type="email" placeholder="Correo Electronico" id="pass-email" value="">
+        </fieldset>
+        <fieldset class="radius-bottom shadow">
+          <label class="select"> 
+            <span class="flag" id="flagpic2"></span>
+            <select onchange="changeflag2()" class="flags" id="pass-portal">
+              <option class="first" name="" value="">Selecciona el Portal de Registro</option>
+              <option name="en-int" value="53">International</option>
+              <option name="es-pe" value="1">Perú</option>
+              <option name="es-es" value="6">España</option>
+              <option name="es-lat" value="12">Latinoamérica</option>
+              <option name="en-us" value="52">United States</option>
+              <option name="en-ca" value="5">Canada</option>
+              <option name="en-uk" value="13">United Kingdom</option>
+            </select>	
+          </label>
+        </fieldset>
+        <button id="btnPass" class="anchor" data-icon="signin" data-label="Enviar Contraseña"></button>
+      </div>
+      </div>
+        
     </article>
   </section>
 
@@ -84,7 +113,7 @@
 			<div align="center"> <img src="images/home/slider5.png" /> </div>
 		</div>
 		<button id="btnLang" style="display: none;" data-bind="click: setLanguage"></button>
-    </article>
+  </article>
 
     <footer id="footer" class="footer">
       	<nav class="icons">                      
@@ -270,7 +299,7 @@
   
   //change select flag
   function changeflag() {
-    var sel = document.getElementById('login-portal');
+    var sel = document.getElementById("login-portal");
     var option = sel.options[sel.selectedIndex];
     var txtPortalLang = option.getAttribute('name');
 
@@ -278,6 +307,34 @@
     var path="url('images/flags/"+txtPortalLang+".gif')";
     document.getElementById('flagpic').style.backgroundImage = path;
   }
+  function changeflag2() {
+    var sel2 = document.getElementById("pass-portal");
+    var option2 = sel2.options[sel2.selectedIndex];
+    var txtPortalLang2 = option2.getAttribute('name');
+
+    //var $flag= $$(this).children(':selected').data('name');
+    var path2="url('images/flags/"+txtPortalLang2+".gif')";
+    document.getElementById('flagpic2').style.backgroundImage = path2;
+  }
+  
+  $(document).ready(function() {
+    $('.blackOpacity').css('top','200%');
+    
+    $('#forgot').click(function(e){
+      e.preventDefault();
+      $('.blackOpacity').animate({
+        top : 0
+        
+      }, 1000);
+    });
+    
+    $('#exit_forgot').click(function(e){
+      e.preventDefault();
+      $('.blackOpacity').slideDown();
+    });
+    
+   
+  });
   
   </script>
   <script src="js/app.js"></script>

@@ -99,6 +99,7 @@ Lungo.Events.init({
 		//Lungo.dom('#list-nav').html('Listas');  //NATY: This is the fallback plan! 
 	},
 	
+	//---SOCIALS---
   'touch section#secListDetail a#share' : function(){
     if($$(this).hasClass('clicked') ) {
        $$('nav#socials').removeClass('show');
