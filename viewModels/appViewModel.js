@@ -120,7 +120,7 @@ function AppViewModel() {
 	            
 				//All Badges
 				var allBadgeURL = '';
-	            $(xml).find('allbadges').each(function() {
+	            $(xml).find('unearnedbadges').each(function() {
 	            	$(this).find("badge").each(function() {
 	                	allBadgeURL = $(this).text();
 	                	self.allBadgesList.push(allBadgeURL);

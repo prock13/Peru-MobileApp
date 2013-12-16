@@ -39,8 +39,6 @@ Lungo.Events.init({
   'touch section#main #btnPass': function() {
     var passUserName = $$('#pass-user').val();
     var passPortalID = $$('#pass-portal').val();
-    //var psel = document.getElementById('pass-portal');
-    //var poption = sel.options[sel.selectedIndex];
 
     if (passUserName == '') {
       Lungo.Notification.error("Error","Username is required", "cancel", 3);
@@ -52,8 +50,6 @@ Lungo.Events.init({
       $$.ajax({
         type: 'GET', 
         url: 'http://m8staging.com/desktopmodules/AuthServices/API/UserAutentication.ashx/ForgotPassword?portalId='+passPortalID+'&userName='+passUserName, 
-        //HARDCODED USER/PASS DURING DEV 
-        //data: { portalId: passPortalID, userName: passUserName },
         dataType: 'text',
         async: true,
         success: function(response) {
@@ -175,7 +171,14 @@ Lungo.Events.init({
     $$('nav#socials').removeClass('show');
     $$('a#share').removeClass('clicked');
 
+  },
+  
+  
+  'touch a.btnLogout' : function() {
+    Lungo.Cache.remove("lungoUserInfo");
+    Lungo.Router.section('main');
   }
+  
 
 });
 
