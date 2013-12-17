@@ -70,12 +70,12 @@ nav[data-control=menu]:not(.icons) > a:hover > .icon { color:#f1f1f1; }
 /*---home---*/
 #homeSlider .artContainer { margin-top:0; margin-bottom:0; }
 /*forgot password*/
-#forgotModal{ padding:3% 4% 0; position: relative;height:53%;top:47%;background:#e8e8e8;
+#forgotModal{ padding:3% 4% 0; position: relative;height:53%;top:100%;background:#e8e8e8;
 background:-moz-linear-gradient(top,#e8e8e8 0%,#cfcece 100%); background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#e8e8e8),color-stop(100%,#cfcece)); background:-webkit-linear-gradient(top,#e8e8e8 0%,#cfcece 100%); background:-ms-linear-gradient(top,#e8e8e8 0%,#cfcece 100%);  background:linear-gradient(to bottom,#e8e8e8 0%,#cfcece 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8',endColorstr='#cfcece',GradientType=0 ); color:#777;}
 #forgotModal #btnPass{margin-top:20px;}
 
 .blackOpacity{ display: block; background: rgba(0, 0, 0, 0.7); position: absolute; top:0; left:0; width: 100%;height:100%;}
-.blackOpacity #exit_forgot{margin-left: 96%;color: red;font-size: 18px;margin-bottom:7%;}
+.blackOpacity #exit_forgot{margin-left: 96%;color:#d52b1e;font-size:20px;margin-bottom:7%;}
 /*#forgotModal .radius-top{padding:10px;}
 #forgotModal span.icon{padding:10px 0px;font-size:30px;float:left;}
 #forgotModal input[type="email"]{margin:5px;height:30px; width:87%;float:left}
