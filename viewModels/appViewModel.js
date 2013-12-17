@@ -57,6 +57,8 @@ function AppViewModel() {
 
 	// LIST DETAILS  ////////////////////////////////////
 	self.listDetails = ko.observableArray();
+	self.destinations = ko.observableArray();
+	self.categories = ko.observableArray();
 	
 	self.getListDetails	= function(chosenList) {
 		Lungo.Notification.show(); // show loading while getting data
@@ -65,12 +67,69 @@ function AppViewModel() {
         myListDetails = $(listResults).find('list').filter(function(){
            return $(this).find("nid").text() == chosenList.nid;
         });
-        
-        myListDetails.find('item').each(function() {
-			    self.listDetails.push({itemID: $(this).find("itemid").text() , titleItem: $(this).find("titleitem").text()});		
+
+		var tempString = "";
+
+		var dests = myListDetails.find('destination');
+		var destCnt = dests.length - 1;  //need to subtract 1 cause array begins with 0
+        dests.each(function(n) {				
+				tempString += '{ destName: "' + $(this).attr("name") + '", category: [' ;
+				
+				var cats = $(this).find('category');
+				var catsCnt = cats.length - 1;  //need to subtract 1 cause array begins with 0
+				cats.each(function(i) {
+					if (i < catsCnt) {
+						tempString += '{ catName: "' + $(this).attr("name") + '", iconURL: "' + $(this).attr("catIconURL") + '" },';
+					} else {	
+						tempString += '{ catName: "' + $(this).attr("name") + '", iconURL: "' + $(this).attr("catIconURL") + '" }';									}
+				});
+				
+				if (n < destCnt) {
+					tempString += ']},';
+				} else {
+					tempString += ']}';
+				}
         });
-        
+
+		console.log(tempString);
+
+	    self.listDetails.push(tempString);
+	    
+/*	    self.listDetails.push(
+	    	{ destName: "Lima", 
+	    		category: [ 
+			    	{ catName: "Atractivos", catIconURL: "", 
+			    		item: [
+			    			{ itemid: "210", titleitem: "Plaza Mayor Lima" },
+			    			{ itemid: "220", titleitem: "Something else"} 
+						] 
+					}, 
+			    	{ catName: "Eventos", catIconURL: "", 
+			    		item: [
+			    			{ temid: "211", titleitem: "Día de la Canción Criolla"}
+			    		] 
+			    	} 
+			    ]
+			},
+	    	{ destName: "Cusco", 
+	    		category: [ 
+			    	{ catName: "Atractivos", catIconURL: "", 
+			    		item: [
+			    			{ itemid: "210", titleitem: "#1 Atractivo" },
+			    			{ itemid: "220", titleitem: "#2 Atractivo"} 
+						] 
+					}, 
+			    	{ catName: "Eventos", catIconURL: "", 
+			    		item: [
+			    			{ temid: "211", titleitem: "#1 Evento"}
+			    		] 
+			    	} 
+			    ]
+			}				
+		);
+*/        
         Lungo.Notification.hide(); //hide loading			
+
 	};
 
 
@@ -120,7 +179,7 @@ function AppViewModel() {
 	            
 				//All Badges
 				var allBadgeURL = '';
-	            $(xml).find('allbadges').each(function() {
+	            $(xml).find('unearnedbadges').each(function() {
 	            	$(this).find("badge").each(function() {
 	                	allBadgeURL = $(this).text();
 	                	self.allBadgesList.push(allBadgeURL);

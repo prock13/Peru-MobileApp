@@ -162,25 +162,15 @@
       <a id="shareTW" data-icon="twitter">Twitter</a>
     </nav>
     <article id="listsDetail" class="list scroll">
-
       <ul class="artContainer"  data-bind="foreach: listDetails">
-		  <li class="arrow selectable" data-view-section="secListDetailItem" data-bind="text: titleItem, click: $root.getItemDetails"></li>
-<!--
-        <li class="anchor contrast">Atractivos</li>
-        <li class="arrow selectable" data-view-section="secListDetailItem"> Mi Atractivo 1 </li>
-        <li class="arrow selectable"> Mi Atractivo 2 </li>
-        <li class="arrow selectable"> Mi Atractivo 3 </li>
-
-        <li class="anchor contrast">Servicios Turísticos</li>
-        <li class="arrow selectable"> Mi Servicio 1 </li>
-        <li class="arrow selectable"> Mi Servicio 2 </li>
-
-        <li class="anchor contrast">Eventos</li>
-        <li class="arrow selectable"> Mi Evento 1 </li>
-        <li class="arrow selectable"> Mi Evento 2 </li>
--->        
+        <li class="anchor contrast" data-bind="text: destName"></li>
+			<!-- ko foreach: category -->
+			<li class="anchor contrast" data-bind="text: catName" style="text-indent: 20px;"></li>			
+				<!-- ko foreach: item -->
+				<li class="arrow selectable" data-view-section="secListDetailItem" data-bind="text: titleitem, click: $root.getItemDetails" style="text-indent: 40px;"></li>
+				<!-- /ko -->
+			<!-- /ko -->
       </ul>
-
     </article>
     
     <footer class="footer">
