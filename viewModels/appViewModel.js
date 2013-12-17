@@ -57,8 +57,7 @@ function AppViewModel() {
 
 	// LIST DETAILS  ////////////////////////////////////
 	self.listDetails = ko.observableArray();
-	self.destinations = ko.observableArray();
-	self.categories = ko.observableArray();
+	var tempString = '';
 	
 	self.getListDetails	= function(chosenList) {
 		Lungo.Notification.show(); // show loading while getting data
@@ -68,66 +67,43 @@ function AppViewModel() {
            return $(this).find("nid").text() == chosenList.nid;
         });
 
-		var tempString = "";
-
 		var dests = myListDetails.find('destination');
 		var destCnt = dests.length - 1;  //need to subtract 1 cause array begins with 0
         dests.each(function(n) {				
-				tempString += '{ destName: "' + $(this).attr("name") + '", category: [' ;
+				tempString += '{ "destName": "' + $(this).attr("name") + '", "category": [' ;
 				
 				var cats = $(this).find('category');
 				var catsCnt = cats.length - 1;  //need to subtract 1 cause array begins with 0
 				cats.each(function(i) {
+					tempString += '{ "catName": "' + $(this).attr("name") + '", "iconURL": "' + $(this).attr("catIconURL") + '" , "item": [';
+						
+					var items = $(this).find('item');
+					var itemCnt = items.length - 1;
+					items.each(function(x) {
+						if (x < itemCnt) {
+							tempString += '{ "itemid": "' + $(this).find("itemid").text() + '", "titleitem": "' + $(this).find("titleitem").text().replace(/"/g, "&quot;") + '" },';
+						} else {	
+							tempString += '{ "itemid": "' + $(this).find("itemid").text() + '", "titleitem": "' + $(this).find("titleitem").text().replace(/"/g, "&quot;") + '" }';									
+						};						
+					});	
+
 					if (i < catsCnt) {
-						tempString += '{ catName: "' + $(this).attr("name") + '", iconURL: "' + $(this).attr("catIconURL") + '" },';
-					} else {	
-						tempString += '{ catName: "' + $(this).attr("name") + '", iconURL: "' + $(this).attr("catIconURL") + '" }';									}
-				});
+						tempString += ']},';
+					} else {
+						tempString += ']}';
+					};								
+
+				}); //end cats.each
 				
 				if (n < destCnt) {
 					tempString += ']},';
 				} else {
 					tempString += ']}';
-				}
-        });
+					console.log(tempString);
+					self.listDetails.push.apply( self.listDetails, JSON.parse('[' + tempString + ']'));
+				};
+        });  //end dests.each
 
-		console.log(tempString);
-
-	    self.listDetails.push(tempString);
-	    
-/*	    self.listDetails.push(
-	    	{ destName: "Lima", 
-	    		category: [ 
-			    	{ catName: "Atractivos", catIconURL: "", 
-			    		item: [
-			    			{ itemid: "210", titleitem: "Plaza Mayor Lima" },
-			    			{ itemid: "220", titleitem: "Something else"} 
-						] 
-					}, 
-			    	{ catName: "Eventos", catIconURL: "", 
-			    		item: [
-			    			{ temid: "211", titleitem: "Día de la Canción Criolla"}
-			    		] 
-			    	} 
-			    ]
-			},
-	    	{ destName: "Cusco", 
-	    		category: [ 
-			    	{ catName: "Atractivos", catIconURL: "", 
-			    		item: [
-			    			{ itemid: "210", titleitem: "#1 Atractivo" },
-			    			{ itemid: "220", titleitem: "#2 Atractivo"} 
-						] 
-					}, 
-			    	{ catName: "Eventos", catIconURL: "", 
-			    		item: [
-			    			{ temid: "211", titleitem: "#1 Evento"}
-			    		] 
-			    	} 
-			    ]
-			}				
-		);
-*/        
         Lungo.Notification.hide(); //hide loading			
 
 	};
@@ -141,10 +117,10 @@ function AppViewModel() {
 		self.itemDetails([]);  //reset array
 		
 		myEventDetails = $(listResults).find('item').filter(function(){
-           return $(this).find("itemid").text() == chosenItem.itemID;
+           return $(this).find("itemid").text() == chosenItem.itemid;
         });
         
-		self.itemDetails.push({itemID2: myEventDetails.find("itemid").text(), titleItem2: myEventDetails.find("titleitem").text(), categoryitem: myEventDetails.find("categoryitem").text(), subcategoryitem: myEventDetails.find("subcategoryitem").text(), thumbnail: myEventDetails.find("thumbnail").text(), destinationid: myEventDetails.find("destinationid").text(), ejeid: myEventDetails.find("ejeid").text(), description: myEventDetails.find("description").text(), isbadgeearn: myEventDetails.find("isbadgeearn").text()});		
+		self.itemDetails.push({itemID2: myEventDetails.find("itemid").text(), titleItem2: myEventDetails.find("titleitem").text(), categoryitem: myEventDetails.find("categoryitem").text(), subcategoryitem: myEventDetails.find("subcategoryitem").text(), thumbnail: myEventDetails.find("thumbnail").text(), destinationid: myEventDetails.find("destinationid").text(), ejeid: myEventDetails.find("ejeid").text(), description: myEventDetails.find("description").text(), isbadgeearn: myEventDetails.find("isbadgeearn").text(), startdate: myEventDetails.find("startdate").text(), enddate: myEventDetails.find("enddate").text(), address: myEventDetails.find("address").text(), phone: myEventDetails.find("phone").text()	});		
 		
 		 Lungo.Notification.hide(); //hide loading
 	};

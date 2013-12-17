@@ -167,7 +167,7 @@
 			<!-- ko foreach: category -->
 			<li class="anchor contrast" data-bind="text: catName" style="text-indent: 20px;"></li>			
 				<!-- ko foreach: item -->
-				<li class="arrow selectable" data-view-section="secListDetailItem" data-bind="text: titleitem, click: $root.getItemDetails" style="text-indent: 40px;"></li>
+				<li class="arrow selectable" data-view-section="secListDetailItem" data-bind="html: titleitem, click: $root.getItemDetails" style="text-indent: 40px;"></li>
 				<!-- /ko -->
 			<!-- /ko -->
       </ul>
@@ -193,7 +193,11 @@
 		<div class="artContainer" data-bind="foreach: itemDetails">
 			<h2 data-bind="text: titleItem2"></h2>
 			<img data-bind="attr: { src: $data.thumbnail, alt: $data.titleitem2}" width="310">
-			<p data-bind="text: description"></p>		
+			<p data-bind="text: description"></p>
+			<p data-bind="text: startdate">Start Date: </p>
+			<p data-bind="text: enddate">End Date: </p>		
+			<p data-bind="text: address">Address: </p>		
+			<p data-bind="text: phone">Phone: /p>		
 		</div>  
     </article>
     

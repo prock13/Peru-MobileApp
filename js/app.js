@@ -90,18 +90,18 @@ Lungo.Events.init({
       $$.ajax({
         type: 'GET', 
         url: 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/AuthenticateUser',
-        data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
+        //data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
         //HARDCODED USER/PASS DURING DEV 
-        //data: {name: 'test250', pass: 'testtest', portal: '6'},
+        data: {name: 'test250', pass: 'testtest', portal: '6'},
         dataType: 'json', 
         async: true,
         success: function(response) {
           if (response.message) {
             Lungo.Notification.error("Error",response.message, "cancel", 3);
           } else {
-            var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
+            //var userInfoArray = {uid: response.uid, userName: txtUserName, userPass: txtPassword, userEmail: response.mail, userFirstName: response.firstname, userLastName: response.lastname, portalID: txtPortalID, portalLang: txtPortalLang};
             //HARDCODED INFO DURING DEV 
-            //var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
+            var userInfoArray = {uid: 178, userName: 'test250', userPass: 'testtest', userEmail: '', userFirstName: '', userLastName: '', portalID: '6', portalLang: 'es-es'};
             Lungo.Cache.set("lungoUserInfo", userInfoArray);  //set global Cache			
             Lungo.Notification.show();    //show loading animation
             App.setLanguageStrings();     //setup language strings
