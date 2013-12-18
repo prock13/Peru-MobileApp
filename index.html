@@ -150,11 +150,12 @@
 
   <!--listsDetail-->
   <section id="secListDetail" data-transition="slide">
-    <header data-title="Mi Lista 1"> 
+    <header> 
       <nav> 
         <a id="" href="#" data-view-section="secLists" data-icon="arrow-left" class="on-left"></a>
         <a id="share" class="on-right" data-icon="share" data-view-menu="socials"></a>
       </nav>
+        <h1 class="title centered" data-bind="html: $root.languageStrings()['titleLists']"></h1>
     </header>
 
     <nav id="socials" data-control="menu">
@@ -163,11 +164,11 @@
     </nav>
     <article id="listsDetail" class="list scroll">
       <ul class="artContainer"  data-bind="foreach: listDetails">
-        <li class="anchor contrast" data-bind="text: destName"></li>
+        <li class="anchor contrast firstL" data-bind="text: destName"></li>
 			<!-- ko foreach: category -->
-			<li class="anchor contrast" data-bind="text: catName" style="text-indent: 20px;"></li>			
+			<li class="anchor contrast secondL" data-bind="text:catName, attr: { 'style':'background-image:url('+iconURL+')' }"> </li>			
 				<!-- ko foreach: item -->
-				<li class="arrow selectable" data-view-section="secListDetailItem" data-bind="html: titleitem, click: $root.getItemDetails" style="text-indent: 40px;"></li>
+				<li class="arrow selectable thirdL" data-view-section="secListDetailItem" data-bind="html: titleitem, click: $root.getItemDetails"></li>
 				<!-- /ko -->
 			<!-- /ko -->
       </ul>
@@ -185,19 +186,20 @@
 
   <!--listDetailItem-->
   <section id="secListDetailItem" data-transition="slide">
-    <header data-title="Mi Atractivo 1"> 
+    <header> 
       <nav> <a id="" href="#" data-view-section="secListDetail" data-icon="arrow-left" class="on-left"></a></nav>
+      <h1 class="title centered" data-bind="html: $root.languageStrings()['titleLists']"></h1>
     </header>
 
     <article id="listsDetailItem" class="scroll">
 		<div class="artContainer" data-bind="foreach: itemDetails">
 			<h2 data-bind="text: titleItem2"></h2>
-			<img data-bind="attr: { src: $data.thumbnail, alt: $data.titleitem2}" width="310">
+			<img data-bind="attr: { src: $data.thumbnail, alt: $data.titleitem2 }" width="310">
 			<p data-bind="text: description"></p>
-			<p data-bind="text: startdate">Start Date: </p>
-			<p data-bind="text: enddate">End Date: </p>		
-			<p data-bind="text: address">Address: </p>		
-			<p data-bind="text: phone">Phone: /p>		
+			<p class="icon time" data-bind="text: startdate"> </p> <p style="padding-left:0; padding-right:0;" class="time">-</p> <p class="time" data-bind="text: enddate"> </p>	
+			<br class="clear" />
+			<p class="icon map-marker" data-bind="text: address"> </p>		
+			<p class="icon phone" data-bind="text: phone"> </p>		
 		</div>  
     </article>
     
