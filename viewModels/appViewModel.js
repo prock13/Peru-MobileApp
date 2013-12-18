@@ -5,8 +5,10 @@ function AppViewModel() {
     var txtPassword = '';
     var txtPortalID = '';
     var txtPortalLang  = '';
+	var webServiceData = '';
+	var wSDomain = '';
+	var wSPath = '';
     var listResults = '';
-    var theLangStrings = '';
 
 	function getCacheInfo() {
 		cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
@@ -15,6 +17,9 @@ function AppViewModel() {
 		txtPortalID = cachedUserInfo['portalID'];
 		txtPortalLang = cachedUserInfo['portalLang'];
 		
+		webServiceData = Lungo.Cache.get("webServiceInfo");
+		wSDomain = webServiceData['domain'];
+		wSPath = webServiceData['path'];		
 	};
 	
 	// LANGUAGE SELECT //////////////////////////////////////	  
@@ -35,7 +40,7 @@ function AppViewModel() {
 
 		jQuery.ajax({
 	        type: "GET",
-	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetListItems",
+	        url: wSDomain + "/" + txtPortalLang + wSPath + "PassPort.ashx/GetListItems",
 	        username: txtUserName,
 	        password: txtPassword,
 	        cache: false,
@@ -62,6 +67,7 @@ function AppViewModel() {
 	self.getListDetails	= function(chosenList) {
 		Lungo.Notification.show(); // show loading while getting data
 		self.listDetails([]);  //reset array	
+		tempString = '';  //reset tempString
 		
         myListDetails = $(listResults).find('list').filter(function(){
            return $(this).find("nid").text() == chosenList.nid;
@@ -75,7 +81,7 @@ function AppViewModel() {
 				var cats = $(this).find('category');
 				var catsCnt = cats.length - 1;  //need to subtract 1 cause array begins with 0
 				cats.each(function(i) {
-					tempString += '{ "catName": "' + $(this).attr("name") + '", "iconURL": "' + $(this).attr("catIconURL") + '" , "item": [';
+					tempString += '{ "catName": "' + $(this).attr("name") + '", "iconURL": "' + $(this).attr("iconURL") + '" , "item": [';
 						
 					var items = $(this).find('item');
 					var itemCnt = items.length - 1;
@@ -99,7 +105,6 @@ function AppViewModel() {
 					tempString += ']},';
 				} else {
 					tempString += ']}';
-					console.log(tempString);
 					self.listDetails.push.apply( self.listDetails, JSON.parse('[' + tempString + ']'));
 				};
         });  //end dests.each
@@ -138,7 +143,7 @@ function AppViewModel() {
 		
 		jQuery.ajax({
 	        type: "GET",
-	        url: "http://m8staging.com/"+txtPortalLang+"/desktopmodules/AuthServices/API/PassPort.ashx/GetBadgeItems",
+	        url: wSDomain + "/" + txtPortalLang + wSPath + "/PassPort.ashx/GetBadgeItems",
 	        username: txtUserName,
 	        password: txtPassword,
 	        cache: false,

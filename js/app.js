@@ -1,30 +1,31 @@
 //--CUSTOM APP FUNCTIONS--
 var App = (function(lng, undefined) {
 
-  var txtPortalLang = '';
+	var txtPortalLang = '';
 
-  var setLanguageStrings = function() {
-    var cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
-    txtPortalLang = cachedUserInfo['portalLang'];	
+	var setLanguageStrings = function() {
+		//GET THE USER INFO
+	    var cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
+	    txtPortalLang = cachedUserInfo['portalLang'];	
+	
+	    switch (txtPortalLang) {
+	      case 'es-es':
+	      case 'es-pe':
+	      case 'es-lat':
+	      var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'M&aacute;s', btnOut: 'Cerrar Sesi&oacute;n', titleLists: 'Mis Listas de Viaje', titleBadges: 'Mis Insignias', titleBadgesAll: 'Todas las Insignias', titleMore: 'M&aacute;s', titleAbout: 'Acerca de Per&uacute;', titleTerms: 'T&eacute;rminos y Condiciones', fileAbout: 'views/about.html', fileTerms: 'views/tnc.html' };
+	      break;
+	
+	      case 'en-us':
+	      case 'en-int':
+	      case 'en-ca':
+	      case 'en-uk':
+	      var langStringsArray = { name: 'en-us', btnLists: 'Lists', btnBadges: 'Badges', btnMore: 'More', btnOut: 'Log Out', titleLists: 'My Itinerary Lists', titleBadges: 'My Badges', titleBadgesAll: 'All Badges', titleMore: 'More', btnAbout: 'About Peru', titleTerms: 'Terms and Conditions', fileAbout: 'views/aboutEn.html', fileTerms: 'views/tncEN.html'  };
+	      break;		  	
+		}; 	
 
-    switch (txtPortalLang) {
-      case 'es-es':
-      case 'es-pe':
-      case 'es-lat':
-      var langStringsArray = { name: 'es-es', btnLists: 'Listas', btnBadges: 'Insignias', btnMore: 'M&aacute;s', btnOut: 'Cerrar Sesi&oacute;n', titleLists: 'Mis Listas de Viaje', titleBadges: 'Mis Insignias', titleBadgesAll: 'Todas las Insignias', titleMore: 'M&aacute;s', titleAbout: 'Acerca de Per&uacute;', titleTerms: 'T&eacute;rminos y Condiciones', fileAbout: 'views/about.html', fileTerms: 'views/tnc.html' };
-      break;
-
-      case 'en-us':
-      case 'en-int':
-      case 'en-ca':
-      case 'en-uk':
-      var langStringsArray = { name: 'en-us', btnLists: 'Lists', btnBadges: 'Badges', btnMore: 'More', btnOut: 'Log Out', titleLists: 'My Itinerary Lists', titleBadges: 'My Badges', titleBadgesAll: 'All Badges', titleMore: 'More', btnAbout: 'About Peru', titleTerms: 'Terms and Conditions', fileAbout: 'views/aboutEn.html', fileTerms: 'views/tncEN.html'  };
-      break;		  	
-    }  	
-
-    Lungo.Cache.set("langStrings", langStringsArray);
-    $( "#btnLang" ).trigger( "click" );  //It's ugly...but it WORKS!!  :)
-  };
+		Lungo.Cache.set("langStrings", langStringsArray);
+		$( "#btnLang" ).trigger( "click" );  
+	};
 
   return {
     setLanguageStrings: setLanguageStrings    
@@ -34,7 +35,12 @@ var App = (function(lng, undefined) {
 
 App.carousel = {prev: null, next: null};
 
+// THIS IS WHERE YOU SET THE DOMAIN AND PATH FOR THE WEBSERVICE
+App.webServiceData = {domain: "http://m8staging.com", path: "/desktopmodules/AuthServices/API/"};
+Lungo.Cache.set("webServiceInfo", App.webServiceData);
+
 Lungo.Events.init({
+
   //forgot password
   'touch section#main #btnPass': function() {
     var passUserName = $$('#pass-user').val();
@@ -44,12 +50,10 @@ Lungo.Events.init({
       Lungo.Notification.error("Error","Username is required", "cancel", 3);
     } else if (passPortalID == '') {
       Lungo.Notification.error("Error","Please select a portal", "cancel", 3);
-    } else { 
-      //http://m8staging.com/desktopmodules/AuthServices/API/UserAutentication.ashx/ForgotPassword?portalId=6&userName=natycaamal
-     
+    } else {     
       $$.ajax({
         type: 'GET', 
-        url: 'http://m8staging.com/desktopmodules/AuthServices/API/UserAutentication.ashx/ForgotPassword?portalId='+passPortalID+'&userName='+passUserName, 
+        url: webServiceData['domain'] + App.webServiceData['path'] + 'UserAutentication.ashx/ForgotPassword?portalId='+passPortalID+'&userName='+passUserName, 
         dataType: 'text',
         async: true,
         success: function(response) {
@@ -67,29 +71,29 @@ Lungo.Events.init({
   },
 
   'touch section#main #btnLogin': function() {
-    var txtUserName = $$('#login-name').val();
-    var txtPassword = $$('#login-password').val();
-    var txtPortalID = $$('#login-portal').val();
-    var sel = document.getElementById('login-portal');
-    var option = sel.options[sel.selectedIndex];
-    var txtPortalLang = option.getAttribute('name');
-    
-    if (txtUserName == '') {
-      Lungo.Notification.error("Error","Username is required", "cancel", 3);
-    } else if (txtPassword == '') {
-      Lungo.Notification.error("Error","Password is required", "cancel", 3);
-    } else if (txtPortalID == '') {
-      Lungo.Notification.error("Error","Please select a portal", "cancel", 3);
-    } else {
-      
-      var goHome = function(){
-        Lungo.Router.section('home');
-        Lungo.Notification.hide();	
-      };
+	var txtUserName = $$('#login-name').val();
+	var txtPassword = $$('#login-password').val();
+	var txtPortalID = $$('#login-portal').val();
+	var sel = document.getElementById('login-portal');
+	var option = sel.options[sel.selectedIndex];
+	var txtPortalLang = option.getAttribute('name');
+	
+	if (txtUserName == '') {
+	  Lungo.Notification.error("Error","Username is required", "cancel", 3);
+	} else if (txtPassword == '') {
+	  Lungo.Notification.error("Error","Password is required", "cancel", 3);
+	} else if (txtPortalID == '') {
+	  Lungo.Notification.error("Error","Please select a portal", "cancel", 3);
+	} else {
+	  
+	  var goHome = function(){
+	    Lungo.Router.section('home');
+	    Lungo.Notification.hide();	
+	  };
       
       $$.ajax({
         type: 'GET', 
-        url: 'http://m8staging.com/'+txtPortalLang+'/desktopmodules/AuthServices/API/PassPort.ashx/AuthenticateUser',
+        url: App.webServiceData['domain'] + '/' + txtPortalLang + App.webServiceData['path'] +'PassPort.ashx/AuthenticateUser',
         //data: {name: txtUserName, pass: txtPassword, portal: txtPortalID},
         //HARDCODED USER/PASS DURING DEV 
         data: {name: 'test250', pass: 'testtest', portal: '6'},
@@ -139,7 +143,6 @@ Lungo.Events.init({
   },
    
   'touch #socials a' : function() {
-    // - http://m8staging.com/es-es/comunidad/Mi-Pasaporte/ItineraryId/99/userId/305.aspx
     var cachedUserInfo = Lungo.Cache.get("lungoUserInfo");
     var portalURL = cachedUserInfo['portalLang'];
     if(portalURL=="en-int") portalURL = "";
@@ -165,14 +168,13 @@ Lungo.Events.init({
     var listID = "79"; //--get from view
     var userID = cachedUserInfo['uid'];
 
-    window.plugins.socialsharing.share(shareMsg, null, null, 'http://m8staging.com/'+ portalURL + '/' + communityURL + '/ItineraryId/'+ listID + '/userId/' + userID +'.aspx');
+    window.plugins.socialsharing.share(shareMsg, null, null, App.webServiceData['domain'] + '/'+ portalURL + '/' + communityURL + '/ItineraryId/'+ listID + '/userId/' + userID +'.aspx');
 
     //--close social modal
     $$('nav#socials').removeClass('show');
     $$('a#share').removeClass('clicked');
 
   },
-  
   
   'touch a.btnLogout' : function() {
     Lungo.Cache.remove("lungoUserInfo");
@@ -184,5 +186,6 @@ Lungo.Events.init({
 
 
 Lungo.ready(function() {
+
 
 });
